@@ -1,10 +1,32 @@
 // Colors
 $primaryColor: #00adb5;
-$darkestColor: #212121;
 $secondaryColor: #323232;
+$darkestColor: #212121;
+$grayColor: #969696;
 $whiteColor: #ffffff;
+$redColor: #f55050;
+$greenColor: #88a47c;
 
 // Fonts
 $manropeBold: manrope-bold;
 $manropeSemiBold: manrope-semibold;
 $manropeMedium: manrope-medium;
+
+// Base Values
+$baseBorder: 0.3rem solid $grayColor;
+$radius: 1rem;
+
+// Scss Functions
+@mixin proFlex($direction, $jc: center, $ai: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $jc;
+	align-items: $ai;
+}
+
+@mixin positionCenter() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

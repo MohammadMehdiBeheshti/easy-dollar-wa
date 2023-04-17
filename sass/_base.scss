@@ -13,4 +13,35 @@ body {
 	font-size: 1.6rem;
 	background-color: $darkestColor;
 	color: $whiteColor;
+	min-height: 100vh;
+	padding: 5rem;
+}
+
+.input {
+	font-size: 2rem;
+	padding: 1rem;
+	background-color: transparent;
+	color: $whiteColor;
+	border: $baseBorder;
+	border-radius: $radius;
+	outline: none;
+}
+
+.login-form-cover {
+	width: 60rem;
+	@include proFlex(column);
+	@include positionCenter();
+	border: $baseBorder;
+	border-radius: $radius;
+
+	.logIn-form {
+		width: 85%;
+		@include proFlex(column);
+
+		.logIn-form-input {
+		}
+
+		.logIn-form__submitbtn {
+		}
+	}
 }
