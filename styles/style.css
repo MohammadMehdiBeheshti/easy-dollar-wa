@@ -128,6 +128,21 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: manrope-bold;
+  src: url("../files/fonts/Manrope-Bold.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: manrope-semibold;
+  src: url("../files/fonts/Manrope-SemiBold.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: manrope-medium;
+  src: url("../files/fonts/Manrope-Medium.ttf") format("truetype");
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -139,6 +154,7 @@ html {
 }
 
 body {
+  font-family: manrope-medium;
   font-size: 1.6rem;
   background-color: #212121;
   color: #ffffff;
