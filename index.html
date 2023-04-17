@@ -6,9 +6,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Easy Pay</title>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<link rel="icon" href="./files/images/symbol.svg" />
 	</head>
 	<body>
-		<h1>So Sassy!</h1>
+		<div class="login-form-cover">
+			<img src="./files/images/logo.svg" alt="logo" class="login-form-cover__logo" />
+			<form class="logIn-form">
+				<input type="text" class="logIn-form-input logIn-form__usernameInput input" placeholder="Username" />
+				<input type="password" class="logIn-form-input logIn-form__passwordInput input" placeholder="Password" />
+				<button type="submit" class="logIn-form__submitbtn">LogIn</button>
+			</form>
+			<p class="login-form-cover__director">
+				Don't have an account? <span class="login-form-cover__link">Register</span>
+			</p>
+		</div>
+
 		<script src="./main.js"></script>
 	</body>
 </html>
