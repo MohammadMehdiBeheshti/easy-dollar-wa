@@ -28,7 +28,7 @@ body {
 
 .submit {
 	width: 100%;
-	height: 8rem;
+	height: 7.5rem;
 	font-family: $manropeBold;
 	font-size: 2.4rem;
 	background-color: $primaryColor;
@@ -40,20 +40,20 @@ body {
 
 // LogIn Form
 .login-form-cover {
-	width: 60rem;
+	width: 50rem;
 	@include proFlex(column, center, center, flex);
 	@include positionCenter();
 	background-color: $secondaryColor;
 	border: $baseBorder;
 	border-radius: $radius;
-	padding: 3rem 0 3rem 0;
+	padding: 2.2rem 0 3rem 0;
 
 	.logIn-form {
 		width: 85%;
 
 		.logIn-form__inputContainer {
 			width: 100%;
-			height: 8rem;
+			height: 7.5rem;
 			@include proFlex(row, space-between);
 			padding-left: 2rem;
 			padding-right: 2rem;
@@ -89,24 +89,24 @@ body {
 }
 
 .login-form-cover__logo {
-	margin-bottom: 8rem;
+	margin-bottom: 6.5rem;
 }
 
 .register-form-cover {
-	width: 60rem;
+	width: 50rem;
 	@include proFlex(column, center, center, none);
 	@include positionCenter();
 	background-color: $secondaryColor;
 	border: $baseBorder;
 	border-radius: $radius;
-	padding: 3rem 0 3rem 0;
+	padding: 2.2rem 0 3rem 0;
 
 	.register-form {
 		width: 85%;
 
 		.register-form__inputContainer {
 			width: 100%;
-			height: 8rem;
+			height: 7.5rem;
 			@include proFlex(row, space-between);
 			padding-left: 2rem;
 			padding-right: 2rem;
