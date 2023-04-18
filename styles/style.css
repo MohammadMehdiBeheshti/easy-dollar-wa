@@ -79,14 +79,13 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-
 article,
 aside,
 details,
@@ -98,193 +97,180 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
-
 body {
-  line-height: 1;
+	line-height: 1;
 }
-
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
-
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+	content: "";
+	content: none;
 }
-
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-@font-face {
-  font-family: manrope-bold;
-  src: url("../files/fonts/Manrope-Bold.ttf") format("truetype");
-  font-style: normal;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 @font-face {
-  font-family: manrope-semibold;
-  src: url("../files/fonts/Manrope-SemiBold.ttf") format("truetype");
-  font-style: normal;
+	font-family: manrope-bold;
+	src: url("../files/fonts/Manrope-Bold.ttf") format("truetype");
+	font-style: normal;
 }
 @font-face {
-  font-family: manrope-medium;
-  src: url("../files/fonts/Manrope-Medium.ttf") format("truetype");
-  font-style: normal;
+	font-family: manrope-semibold;
+	src: url("../files/fonts/Manrope-SemiBold.ttf") format("truetype");
+	font-style: normal;
+}
+@font-face {
+	font-family: manrope-medium;
+	src: url("../files/fonts/Manrope-Medium.ttf") format("truetype");
+	font-style: normal;
 }
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-
 html {
-  font-size: 10px;
+	font-size: 10px;
 }
-
 body {
-  font-family: manrope-medium;
-  font-size: 1.6rem;
-  background-color: #212121;
-  color: #ffffff;
-  min-height: 100vh;
-  padding: 5rem;
+	font-family: manrope-medium;
+	font-size: 1.6rem;
+	background-color: #212121;
+	color: #ffffff;
+	min-height: 100vh;
+	padding: 5rem;
 }
-
 .input {
-  font-family: manrope-semibold;
-  font-size: 1.8rem;
-  background-color: transparent;
-  color: #ffffff;
-  border: none;
-  outline: none;
+	font-family: manrope-semibold;
+	font-size: 1.8rem;
+	background-color: transparent;
+	color: #ffffff;
+	border: none;
+	outline: none;
 }
-
 .submit {
-  width: 100%;
-  height: 8rem;
-  font-family: manrope-bold;
-  font-size: 2.4rem;
-  background-color: #00adb5;
-  color: #323232;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
+	width: 100%;
+	height: 8rem;
+	font-family: manrope-bold;
+	font-size: 2.4rem;
+	background-color: #00adb5;
+	color: #323232;
+	border: none;
+	border-radius: 1rem;
+	cursor: pointer;
 }
-
 .login-form-cover {
-  width: 60rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #323232;
-  border: 0.3rem solid #969696;
-  border-radius: 1rem;
-  padding: 3rem 0 3rem 0;
+	width: 60rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #323232;
+	border: 0.3rem solid #969696;
+	border-radius: 1rem;
+	padding: 3rem 0 3rem 0;
 }
 .login-form-cover .logIn-form {
-  width: 85%;
+	width: 85%;
 }
 .login-form-cover .logIn-form .logIn-form__inputContainer {
-  width: 100%;
-  height: 8rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  border: 0.3rem solid #969696;
-  border-radius: 1rem;
-  margin-bottom: 3rem;
+	width: 100%;
+	height: 8rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	border: 0.3rem solid #969696;
+	border-radius: 1rem;
+	margin-bottom: 3rem;
 }
 .login-form-cover .logIn-form .logIn-form__inputContainer .logIn-form-input {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 .login-form-cover .logIn-form .logIn-form__inputContainer svg {
-  margin-right: 2rem;
+	margin-right: 2rem;
 }
 .login-form-cover .logIn-form .logIn-form__submitbtn {
-  margin-bottom: 3rem;
+	margin-bottom: 3rem;
 }
 .login-form-cover .login-form-cover__director {
-  font-size: 1.8rem;
-  color: #969696;
+	font-size: 1.8rem;
+	color: #969696;
 }
 .login-form-cover .login-form-cover__director .login-form-cover__link {
-  font-family: manrope-semibold;
-  color: #ffffff;
-  cursor: pointer;
+	font-family: manrope-semibold;
+	color: #ffffff;
+	cursor: pointer;
 }
-
 .login-form-cover__logo {
-  margin-bottom: 8rem;
+	margin-bottom: 8rem;
 }
-
 .register-form-cover {
-  width: 60rem;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #323232;
-  border: 0.3rem solid #969696;
-  border-radius: 1rem;
-  padding: 3rem 0 3rem 0;
+	width: 60rem;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #323232;
+	border: 0.3rem solid #969696;
+	border-radius: 1rem;
+	padding: 3rem 0 3rem 0;
 }
 .register-form-cover .register-form {
-  width: 85%;
+	width: 85%;
 }
 .register-form-cover .register-form .register-form__inputContainer {
-  width: 100%;
-  height: 8rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  border: 0.3rem solid #969696;
-  border-radius: 1rem;
-  margin-bottom: 3rem;
+	width: 100%;
+	height: 8rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	border: 0.3rem solid #969696;
+	border-radius: 1rem;
+	margin-bottom: 3rem;
 }
 .register-form-cover .register-form .register-form__inputContainer .register-form-input {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 .register-form-cover .register-form .register-form__inputContainer svg {
-  margin-right: 2rem;
+	margin-right: 2rem;
 }
 .register-form-cover .register-form .register-form__submitbtn {
-  margin-bottom: 3rem;
+	margin-bottom: 3rem;
 }
 .register-form-cover .register-form__director {
-  font-size: 1.8rem;
-  color: #969696;
+	font-size: 1.8rem;
+	color: #969696;
 }
 .register-form-cover .register-form__director .register-form__link {
-  font-family: manrope-semibold;
-  color: #ffffff;
-  cursor: pointer;
-}/*# sourceMappingURL=style.css.map */
+	font-family: manrope-semibold;
+	color: #ffffff;
+	cursor: pointer;
+} /*# sourceMappingURL=style.css.map */
