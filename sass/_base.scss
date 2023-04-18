@@ -18,30 +18,124 @@ body {
 }
 
 .input {
-	font-size: 2rem;
-	padding: 1rem;
+	font-family: $manropeSemiBold;
+	font-size: 1.8rem;
 	background-color: transparent;
 	color: $whiteColor;
-	border: $baseBorder;
-	border-radius: $radius;
+	border: none;
 	outline: none;
 }
 
+.submit {
+	width: 100%;
+	height: 8rem;
+	font-family: $manropeBold;
+	font-size: 2.4rem;
+	background-color: $primaryColor;
+	color: $secondaryColor;
+	border: none;
+	border-radius: $radius;
+	cursor: pointer;
+}
+
+// LogIn Form
 .login-form-cover {
 	width: 60rem;
-	@include proFlex(column);
+	@include proFlex(column, center, center, flex);
 	@include positionCenter();
+	background-color: $secondaryColor;
 	border: $baseBorder;
 	border-radius: $radius;
+	padding: 3rem 0 3rem 0;
 
 	.logIn-form {
 		width: 85%;
-		@include proFlex(column);
 
-		.logIn-form-input {
+		.logIn-form__inputContainer {
+			width: 100%;
+			height: 8rem;
+			@include proFlex(row, space-between);
+			padding-left: 2rem;
+			padding-right: 2rem;
+			border: $baseBorder;
+			border-radius: $radius;
+			margin-bottom: 3rem;
+
+			.logIn-form-input {
+				width: 100%;
+				height: 100%;
+			}
+
+			svg {
+				margin-right: 2rem;
+			}
 		}
 
 		.logIn-form__submitbtn {
+			margin-bottom: 3rem;
+		}
+	}
+
+	.login-form-cover__director {
+		font-size: 1.8rem;
+		color: $grayColor;
+
+		.login-form-cover__link {
+			font-family: $manropeSemiBold;
+			color: $whiteColor;
+			cursor: pointer;
+		}
+	}
+}
+
+.login-form-cover__logo {
+	margin-bottom: 8rem;
+}
+
+.register-form-cover {
+	width: 60rem;
+	@include proFlex(column, center, center, none);
+	@include positionCenter();
+	background-color: $secondaryColor;
+	border: $baseBorder;
+	border-radius: $radius;
+	padding: 3rem 0 3rem 0;
+
+	.register-form {
+		width: 85%;
+
+		.register-form__inputContainer {
+			width: 100%;
+			height: 8rem;
+			@include proFlex(row, space-between);
+			padding-left: 2rem;
+			padding-right: 2rem;
+			border: $baseBorder;
+			border-radius: $radius;
+			margin-bottom: 3rem;
+
+			.register-form-input {
+				width: 100%;
+				height: 100%;
+			}
+
+			svg {
+				margin-right: 2rem;
+			}
+		}
+
+		.register-form__submitbtn {
+			margin-bottom: 3rem;
+		}
+	}
+
+	.register-form__director {
+		font-size: 1.8rem;
+		color: $grayColor;
+		.register-form__link {
+			font-family: $manropeSemiBold;
+			color: $whiteColor;
+			cursor: pointer;
 		}
 	}
 }

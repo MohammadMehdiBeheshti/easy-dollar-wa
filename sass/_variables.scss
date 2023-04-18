@@ -17,8 +17,8 @@ $baseBorder: 0.3rem solid $grayColor;
 $radius: 1rem;
 
 // Scss Functions
-@mixin proFlex($direction, $jc: center, $ai: center) {
-	display: flex;
+@mixin proFlex($direction, $jc: center, $ai: center, $display: flex) {
+	display: $display;
 	flex-direction: $direction;
 	justify-content: $jc;
 	align-items: $ai;
