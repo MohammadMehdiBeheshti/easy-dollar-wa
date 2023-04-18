@@ -159,7 +159,7 @@ body {
   background-color: #212121;
   color: #ffffff;
   min-height: 100vh;
-  padding: 5rem;
+  padding: 1% 10% 0 10%;
 }
 
 .input {
@@ -181,6 +181,26 @@ body {
   border: none;
   border-radius: 1rem;
   cursor: pointer;
+}
+
+.btn {
+  font-family: manrope-bold;
+  font-size: 2.4rem;
+  background-color: #00adb5;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.dashboard .dashboard__navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard .dashboard__navigation .dashboard__logout-btn {
+  width: 23rem;
+  height: 5.5rem;
 }
 
 .login-form-cover {

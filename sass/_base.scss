@@ -14,7 +14,7 @@ body {
 	background-color: $darkestColor;
 	color: $whiteColor;
 	min-height: 100vh;
-	padding: 5rem;
+	padding: 1% 10% 0 10%;
 }
 
 .input {
@@ -36,6 +36,27 @@ body {
 	border: none;
 	border-radius: $radius;
 	cursor: pointer;
+}
+
+.btn {
+	font-family: $manropeBold;
+	font-size: 2.4rem;
+	background-color: $primaryColor;
+	border: none;
+	border-radius: $radius;
+	cursor: pointer;
+}
+
+// Dashboard
+.dashboard {
+	.dashboard__navigation {
+		@include proFlex(row, space-between);
+
+		.dashboard__logout-btn {
+			width: 23rem;
+			height: 5.5rem;
+		}
+	}
 }
 
 // LogIn Form
