@@ -185,7 +185,7 @@ body {
 
 .btn {
   font-family: manrope-bold;
-  font-size: 2.4rem;
+  font-size: 2rem;
   background-color: #00adb5;
   border: none;
   border-radius: 1rem;
@@ -197,12 +197,73 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3.5rem;
 }
 .dashboard .dashboard__navigation .dashboard__logout-btn {
-  width: 23rem;
-  height: 5.5rem;
+  width: 20rem;
+  height: 4.5rem;
 }
-
+.dashboard .dashboard__main-page {
+  width: 100%;
+}
+.dashboard .dashboard__main-page .main-page__upper-container {
+  display: flex;
+  flex-direction: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard .dashboard__main-page .main-page__upper-container .upper-container__greetings .upper-container-greetings__info {
+  font-family: manrope-semibold;
+  font-size: 3.2rem;
+  margin-bottom: 1.2rem;
+}
+.dashboard .dashboard__main-page .main-page__upper-container .upper-container__greetings .upper-container-greetings__date {
+  font-family: manrope-medium;
+  font-size: 2rem;
+}
+.dashboard .dashboard__main-page .main-page__upper-container .upper-container-greetings__date {
+  font-family: manrope-bold;
+  font-size: 5rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management {
+  width: 100%;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container {
+  width: 75rem;
+  border: 0.3rem solid #969696;
+  border-radius: 1rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container .transaction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  padding: 0 2rem;
+  border-bottom: 0.3rem solid #969696;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container .transaction .transac-date-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container .transaction .transac-date-time .transac-date__stat {
+  display: block;
+  width: 13rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  background-color: #88a47c;
+  border-radius: 0.5rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container .transaction .transac-date-time .transaction__date {
+  margin-left: 2.7rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container .transaction .transaction-amount {
+  font-family: manrope-bold;
+  font-size: 2.4rem;
+}
 .login-form-cover {
   width: 50rem;
   display: flex;

@@ -40,7 +40,7 @@ body {
 
 .btn {
 	font-family: $manropeBold;
-	font-size: 2.4rem;
+	font-size: 2rem;
 	background-color: $primaryColor;
 	border: none;
 	border-radius: $radius;
@@ -51,10 +51,82 @@ body {
 .dashboard {
 	.dashboard__navigation {
 		@include proFlex(row, space-between);
+		margin-bottom: 3.5rem;
 
 		.dashboard__logout-btn {
-			width: 23rem;
-			height: 5.5rem;
+			width: 20rem;
+			height: 4.5rem;
+		}
+	}
+
+	.dashboard__main-page {
+		width: 100%;
+
+		.main-page__upper-container {
+			@include proFlex(flex, space-between);
+
+			.upper-container__greetings {
+				.upper-container-greetings__info {
+					font-family: $manropeSemiBold;
+					font-size: 3.2rem;
+					margin-bottom: 1.2rem;
+				}
+
+				.upper-container-greetings__date {
+					font-family: $manropeMedium;
+					font-size: 2rem;
+				}
+			}
+
+			.upper-container-greetings__date {
+				font-family: $manropeBold;
+				font-size: 5rem;
+			}
+		}
+
+		.dashboard__money-management {
+			width: 100%;
+
+			.transactions-container {
+				width: 75rem;
+				border: $baseBorder;
+				border-radius: $radius;
+
+				.transaction {
+					@include proFlex(row, space-between);
+					height: 7rem;
+					padding: 0 2rem;
+					border-bottom: 0.3rem solid $grayColor;
+
+					.transac-date-time {
+						@include proFlex(row);
+
+						.transac-date__stat {
+							display: block;
+							width: 13rem;
+							padding-top: 0.5rem;
+							padding-bottom: 0.5rem;
+							text-align: center;
+							background-color: $greenColor;
+							border-radius: 0.5rem;
+						}
+
+						.transaction__date {
+							margin-left: 2.7rem;
+						}
+					}
+
+					.transaction-amount {
+						font-family: $manropeBold;
+						font-size: 2.4rem;
+					}
+				}
+			}
+
+			// TODO: Style the manipulator section 'Don't Forget'
+
+			.money-manipulator-container {
+			}
 		}
 	}
 }
