@@ -4,6 +4,7 @@ $secondaryColor: #323232;
 $darkestColor: #212121;
 $grayColor: #969696;
 $whiteColor: #ffffff;
+$yellowColor: #faeab1;
 $redColor: #f55050;
 $greenColor: #88a47c;
 
@@ -16,7 +17,7 @@ $manropeMedium: manrope-medium;
 $baseBorder: 0.3rem solid $grayColor;
 $radius: 1rem;
 
-// Scss Functions
+// Scss Mixins
 @mixin proFlex($direction, $jc: center, $ai: center, $display: flex) {
 	display: $display;
 	flex-direction: $direction;
