@@ -2,11 +2,6 @@
 
 const users = [[{ username: "jessica", password: "jessi123" }]];
 
-const addUser = (username, password) => {
-	const newUser = [{ username, password }];
-	users.push(newUser);
-};
-
 const switchScreen = (screen) => {
 	const dashboard = document.querySelector(".dashboard");
 	const loginFormCover = document.querySelector(".login-form-cover");
