@@ -86,11 +86,15 @@ body {
 
 		.dashboard__money-management {
 			width: 100%;
+			margin-top: 2.5rem;
 
 			.transactions-container {
-				width: 75rem;
+				width: 70rem;
+				height: 49.3rem;
 				border: $baseBorder;
 				border-radius: $radius;
+				overflow-y: scroll;
+				overflow-x: hidden;
 
 				.transaction {
 					@include proFlex(row, space-between);
@@ -121,11 +125,22 @@ body {
 						font-size: 2.4rem;
 					}
 				}
+
+				.transaction:last-child {
+					border: none;
+				}
+			}
+
+			.transactions-container::-webkit-scrollbar {
+				display: none;
 			}
 
 			// TODO: Style the manipulator section 'Don't Forget'
 
 			.money-manipulator-container {
+				.money-transfer-container {
+					@include proFlex(column);
+				}
 			}
 		}
 	}
