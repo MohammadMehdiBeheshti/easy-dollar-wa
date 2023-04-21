@@ -226,7 +226,10 @@ body {
   font-size: 5rem;
 }
 .dashboard .dashboard__main-page .dashboard__money-management {
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 2.5rem;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container {
@@ -274,11 +277,68 @@ body {
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container::-webkit-scrollbar {
   display: none;
 }
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container {
+  text-align: center;
+}
 .dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container {
+  width: 50rem;
+  padding: 3rem 0;
+  background-color: rgba(250, 234, 177, 0.1);
+  color: #faeab1;
+  border: 0.3rem solid #faeab1;
+  border-radius: 1rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs {
+  width: -moz-min-content;
+  width: min-content;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input-amount-money-transfer {
+  border: 0.3rem solid #faeab1;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input-transfer {
+  width: 25.5rem;
+  height: 5.5rem;
+  padding: 0 2rem;
+  border: 0.3rem solid #faeab1;
+  border-radius: 0.5rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input::-moz-placeholder {
+  color: #faeab1;
+  opacity: 60%;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input::placeholder {
+  color: #faeab1;
+  opacity: 60%;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .transfer-confirmation-btn {
+  width: 6rem;
+  height: 13rem;
+  margin-left: 2rem;
+  background-color: #faeab1;
+  border-radius: 0.5rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-manipulator-title {
+  font-family: manrope-bold;
+  font-size: 3.2rem;
+  margin-bottom: 2.5rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .input-amount {
+  width: 25.5rem;
+  height: 5.5rem;
+  padding: 0 2rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .input-amount::-webkit-inner-spin-button,
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .input-amount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .login-form-cover {

@@ -85,7 +85,7 @@ body {
 		}
 
 		.dashboard__money-management {
-			width: 100%;
+			@include proFlex(row, space-between);
 			margin-top: 2.5rem;
 
 			.transactions-container {
@@ -135,11 +135,69 @@ body {
 				display: none;
 			}
 
-			// TODO: Style the manipulator section 'Don't Forget'
-
 			.money-manipulator-container {
+				text-align: center;
+
 				.money-transfer-container {
-					@include proFlex(column);
+					width: 50rem;
+					padding: 3rem 0;
+					background-color: rgb(250, 234, 177, 0.1);
+					color: $yellowColor;
+					border: 0.3rem solid $yellowColor;
+					border-radius: $radius;
+
+					.money-man-trans-container {
+						@include proFlex(row);
+
+						.money-inputs {
+							width: min-content;
+
+							.input-amount-money-transfer {
+								border: 0.3rem solid $yellowColor;
+								border-radius: $radius / 2;
+								margin-bottom: 2rem;
+							}
+
+							.input-transfer {
+								width: 25.5rem;
+								height: 5.5rem;
+								padding: 0 2rem;
+								border: 0.3rem solid $yellowColor;
+								border-radius: $radius / 2;
+							}
+
+							.input::placeholder {
+								color: $yellowColor;
+								opacity: 60%;
+							}
+						}
+
+						.transfer-confirmation-btn {
+							width: 6rem;
+							height: 13rem;
+							margin-left: 2rem;
+							background-color: $yellowColor;
+							border-radius: $radius / 2;
+						}
+					}
+				}
+
+				.money-manipulator-title {
+					font-family: $manropeBold;
+					font-size: 3.2rem;
+					margin-bottom: 2.5rem;
+				}
+
+				.input-amount {
+					width: 25.5rem;
+					height: 5.5rem;
+					padding: 0 2rem;
+				}
+
+				.input-amount::-webkit-inner-spin-button,
+				.input-amount::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
 				}
 			}
 		}
