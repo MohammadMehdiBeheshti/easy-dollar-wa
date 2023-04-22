@@ -151,6 +151,9 @@ table {
 
 html {
   font-size: 10px;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
 }
 
 body {
@@ -226,15 +229,16 @@ body {
   font-size: 5rem;
 }
 .dashboard .dashboard__main-page .dashboard__money-management {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 60% 38.5%;
+  grid-template-rows: repeat(2, 23.6rem);
+  justify-content: center;
+  gap: 2rem;
   margin-top: 2.5rem;
+  text-align: center;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container {
-  width: 70rem;
-  height: 49.3rem;
+  grid-row: 1/3;
   border: 0.3rem solid #969696;
   border-radius: 1rem;
   overflow-y: scroll;
@@ -277,66 +281,96 @@ body {
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container::-webkit-scrollbar {
   display: none;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container {
-  text-align: center;
-}
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container {
-  width: 50rem;
-  padding: 3rem 0;
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
   background-color: rgba(250, 234, 177, 0.1);
   color: #faeab1;
   border: 0.3rem solid #faeab1;
   border-radius: 1rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs {
   width: -moz-min-content;
   width: min-content;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input-amount-money-transfer {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input-amount-money-transfer {
   border: 0.3rem solid #faeab1;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input-transfer {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input-transfer {
   width: 25.5rem;
   height: 5.5rem;
   padding: 0 2rem;
   border: 0.3rem solid #faeab1;
   border-radius: 0.5rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input::-moz-placeholder {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input::-moz-placeholder {
   color: #faeab1;
   opacity: 60%;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .money-inputs .input::placeholder {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input::placeholder {
   color: #faeab1;
   opacity: 60%;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-transfer-container .money-man-trans-container .transfer-confirmation-btn {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .transfer-confirmation-btn {
   width: 6rem;
   height: 13rem;
   margin-left: 2rem;
   background-color: #faeab1;
   border-radius: 0.5rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .money-manipulator-title {
+.dashboard .dashboard__main-page .dashboard__money-management .loan-request-container {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(136, 164, 124, 0.1);
+  color: #88a47c;
+  border: 0.3rem solid #88a47c;
+  border-radius: 1rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input-amount-request-loan {
+  border: 0.3rem solid #88a47c;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input::-moz-placeholder {
+  color: #88a47c;
+  opacity: 60%;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input::placeholder {
+  color: #88a47c;
+  opacity: 60%;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .request-loan-confirmation {
+  width: 25.5rem;
+  height: 5.5rem;
+  background-color: #88a47c;
+  border-radius: 0.5rem;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-title {
   font-family: manrope-bold;
   font-size: 3.2rem;
   margin-bottom: 2.5rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .input-amount {
+.dashboard .dashboard__main-page .dashboard__money-management .input-amount {
   width: 25.5rem;
   height: 5.5rem;
   padding: 0 2rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .input-amount::-webkit-inner-spin-button,
-.dashboard .dashboard__main-page .dashboard__money-management .money-manipulator-container .input-amount::-webkit-outer-spin-button {
+.dashboard .dashboard__main-page .dashboard__money-management .input-amount::-webkit-inner-spin-button,
+.dashboard .dashboard__main-page .dashboard__money-management .input-amount::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
