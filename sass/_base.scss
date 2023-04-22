@@ -6,7 +6,7 @@
 
 html {
 	font-size: 10px;
-	// user-select: none;
+	user-select: none;
 }
 
 body {
@@ -50,6 +50,7 @@ body {
 // Dashboard
 .dashboard {
 	width: 75%;
+	display: none;
 	@include positionCenter();
 
 	.dashboard__navigation {
@@ -381,4 +382,29 @@ body {
 			cursor: pointer;
 		}
 	}
+}
+
+.notification {
+	width: fit-content;
+	height: 7rem;
+	padding: 0 1.5rem;
+	@include proFlex(row, flex-start);
+	position: absolute;
+	z-index: 2;
+	top: -10rem;
+	right: 1rem;
+	background-color: $notificationColor;
+	border-radius: $radius / 2;
+	transition: all 200ms ease-in-out;
+
+	.notification__text {
+		font-size: 1.6rem;
+		font-family: $manropeBold;
+		color: $darkestColor;
+		margin-left: 1.5rem;
+	}
+}
+
+.notification-show {
+	top: 1rem;
 }

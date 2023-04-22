@@ -151,6 +151,9 @@ table {
 
 html {
   font-size: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 body {
@@ -193,6 +196,7 @@ body {
 
 .dashboard {
   width: 75%;
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -533,4 +537,32 @@ body {
   font-family: manrope-semibold;
   color: #ffffff;
   cursor: pointer;
+}
+
+.notification {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 7rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  top: -10rem;
+  right: 1rem;
+  background-color: #e5beec;
+  border-radius: 0.5rem;
+  transition: all 200ms ease-in-out;
+}
+.notification .notification__text {
+  font-size: 1.6rem;
+  font-family: manrope-bold;
+  color: #212121;
+  margin-left: 1.5rem;
+}
+
+.notification-show {
+  top: 1rem;
 }/*# sourceMappingURL=style.css.map */
