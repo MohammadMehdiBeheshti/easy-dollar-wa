@@ -211,7 +211,7 @@ body {
 }
 .dashboard .dashboard__navigation .btn-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
 }
@@ -223,15 +223,14 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
-  margin-right: 2rem;
+  margin-left: 2rem;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard__logout-btn svg {
+  transform: rotate(180deg);
 }
 .dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn {
-  width: 5rem;
+  width: 18rem;
   height: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #f55050;
   border-radius: 0.5rem;
 }

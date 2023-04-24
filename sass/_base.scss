@@ -58,20 +58,23 @@ body {
 		margin-bottom: 2%;
 
 		.btn-container {
-			@include proFlex(row);
+			@include proFlex(row-reverse);
 
 			.dashboard__logout-btn {
 				width: 5rem;
 				height: 5rem;
 				@include proFlex(column);
 				border-radius: calc($radius / 2);
-				margin-right: 2rem;
+				margin-left: 2rem;
+
+				svg {
+					transform: rotate(180deg);
+				}
 			}
 
 			.dashboard-delete-account-btn {
-				width: 5rem;
+				width: 18rem;
 				height: 5rem;
-				@include proFlex(column);
 				background-color: $redColor;
 				border-radius: calc($radius / 2);
 			}
