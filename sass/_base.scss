@@ -265,7 +265,20 @@ body {
 
 					span {
 						font-family: $manropeBold;
+						font-size: 1.8rem;
 						margin-left: 0.7rem;
+					}
+
+					.in {
+						color: $greenColor;
+					}
+
+					.out {
+						color: $redColor;
+					}
+
+					.interest {
+						color: $greenColor;
 					}
 				}
 

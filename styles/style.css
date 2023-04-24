@@ -421,7 +421,17 @@ body {
 }
 .dashboard .dashboard__main-page .downer-content-container .downer-left-content .downer-left-info span {
   font-family: manrope-bold;
+  font-size: 1.8rem;
   margin-left: 0.7rem;
+}
+.dashboard .dashboard__main-page .downer-content-container .downer-left-content .downer-left-info .in {
+  color: #88a47c;
+}
+.dashboard .dashboard__main-page .downer-content-container .downer-left-content .downer-left-info .out {
+  color: #f55050;
+}
+.dashboard .dashboard__main-page .downer-content-container .downer-left-content .downer-left-info .interest {
+  color: #88a47c;
 }
 .dashboard .dashboard__main-page .downer-content-container .downer-left-content .sort {
   font-family: manrope-bold;
