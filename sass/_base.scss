@@ -397,6 +397,8 @@ body {
 	z-index: 2;
 	top: -10rem;
 	right: 1rem;
+	opacity: 0;
+	transform: scale(0);
 	border-radius: calc($radius / 2);
 	transition: all 200ms ease-in-out;
 
@@ -409,5 +411,7 @@ body {
 }
 
 .notification-show {
+	transform: scale(1);
+	opacity: 100%;
 	top: 1rem;
 }
