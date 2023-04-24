@@ -377,11 +377,11 @@ body {
 }
 .dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input::-moz-placeholder {
   color: #88a47c;
-  opacity: 60%;
+  opacity: 75%;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input::placeholder {
   color: #88a47c;
-  opacity: 60%;
+  opacity: 75%;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .request-loan-confirmation {
   width: 25.5rem;
@@ -446,7 +446,7 @@ body {
   background-color: #323232;
   border: 0.3rem solid #969696;
   border-radius: 1rem;
-  padding: 2.2rem 0 3rem 0;
+  padding: 3rem 0 3rem 0;
 }
 .login-form-cover .logIn-form {
   width: 85%;
@@ -501,7 +501,7 @@ body {
   background-color: #323232;
   border: 0.3rem solid #969696;
   border-radius: 1rem;
-  padding: 2.2rem 0 3rem 0;
+  padding: 3rem 0 3rem 0;
 }
 .register-form-cover .register-form {
   width: 85%;
@@ -552,7 +552,6 @@ body {
   z-index: 2;
   top: -10rem;
   right: 1rem;
-  background-color: #e5beec;
   border-radius: 0.5rem;
   transition: all 200ms ease-in-out;
 }
