@@ -64,7 +64,7 @@ body {
 				width: 5rem;
 				height: 5rem;
 				@include proFlex(column);
-				border-radius: $radius / 2;
+				border-radius: calc($radius / 2);
 				margin-right: 2rem;
 			}
 
@@ -73,7 +73,7 @@ body {
 				height: 5rem;
 				@include proFlex(column);
 				background-color: $redColor;
-				border-radius: $radius / 2;
+				border-radius: calc($radius / 2);
 			}
 		}
 	}
@@ -176,7 +176,7 @@ body {
 
 						.input-amount-money-transfer {
 							border: 0.3rem solid $yellowColor;
-							border-radius: $radius / 2;
+							border-radius: calc($radius / 2);
 							margin-bottom: 2rem;
 						}
 
@@ -185,7 +185,7 @@ body {
 							height: 5.5rem;
 							padding: 0 2rem;
 							border: 0.3rem solid $yellowColor;
-							border-radius: $radius / 2;
+							border-radius: calc($radius / 2);
 						}
 
 						.input::placeholder {
@@ -199,7 +199,7 @@ body {
 						height: 13rem;
 						margin-left: 2rem;
 						background-color: $yellowColor;
-						border-radius: $radius / 2;
+						border-radius: calc($radius / 2);
 					}
 				}
 			}
@@ -214,20 +214,20 @@ body {
 
 				.input-amount-request-loan {
 					border: 0.3rem solid $greenColor;
-					border-radius: $radius / 2;
+					border-radius: calc($radius / 2);
 					margin-bottom: 2rem;
 				}
 
 				.input::placeholder {
 					color: $greenColor;
-					opacity: 60%;
+					opacity: 75%;
 				}
 
 				.request-loan-confirmation {
 					width: 25.5rem;
 					height: 5.5rem;
 					background-color: $greenColor;
-					border-radius: $radius / 2;
+					border-radius: calc($radius / 2);
 				}
 			}
 
@@ -290,7 +290,7 @@ body {
 	background-color: $secondaryColor;
 	border: $baseBorder;
 	border-radius: $radius;
-	padding: 2.2rem 0 3rem 0;
+	padding: 3rem 0 3rem 0;
 
 	.logIn-form {
 		width: 85%;
@@ -336,6 +336,7 @@ body {
 	margin-bottom: 6.5rem;
 }
 
+// Register Form
 .register-form-cover {
 	width: 50rem;
 	@include proFlex(column, center, center, none);
@@ -343,7 +344,7 @@ body {
 	background-color: $secondaryColor;
 	border: $baseBorder;
 	border-radius: $radius;
-	padding: 2.2rem 0 3rem 0;
+	padding: 3rem 0 3rem 0;
 
 	.register-form {
 		width: 85%;
@@ -393,8 +394,7 @@ body {
 	z-index: 2;
 	top: -10rem;
 	right: 1rem;
-	background-color: $notificationColor;
-	border-radius: $radius / 2;
+	border-radius: calc($radius / 2);
 	transition: all 200ms ease-in-out;
 
 	.notification__text {
