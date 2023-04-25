@@ -267,6 +267,7 @@ body {
 }
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container {
   grid-row: 1/3;
+  position: relative;
   background-color: #323232;
   border: 0.3rem solid #969696;
   border-radius: 1rem;
@@ -306,6 +307,15 @@ body {
 }
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container .transaction:last-child {
   border: none;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .transactions-container .empty-container {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: manrope-semibold;
+  font-size: 3.5rem;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .transactions-container::-webkit-scrollbar {
   display: none;
