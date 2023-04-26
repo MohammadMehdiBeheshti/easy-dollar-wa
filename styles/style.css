@@ -399,39 +399,40 @@ body {
   border-radius: 1rem;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 75% 18%;
   justify-content: center;
-  align-items: center;
+  justify-items: center;
+  gap: 2rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs {
-  width: -moz-min-content;
-  width: min-content;
-}
-.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input-amount-money-transfer {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input-amount-money-transfer {
+  width: 100%;
   border: 0.3rem solid #faeab1;
   border-radius: 0.5rem;
-  margin-bottom: 2rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input-transfer {
-  width: 25.5rem;
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input-transfer {
+  width: 100%;
   height: 5.5rem;
   padding: 0 2rem;
   border: 0.3rem solid #faeab1;
   border-radius: 0.5rem;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input::-moz-placeholder {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input {
+  grid-column: 1/2;
+}
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input::-moz-placeholder {
   color: #faeab1;
   opacity: 60%;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .money-inputs .input::placeholder {
+.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input::placeholder {
   color: #faeab1;
   opacity: 60%;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .transfer-confirmation-btn {
   width: 6rem;
   height: 13rem;
-  margin-left: 2rem;
+  grid-column: 2/3;
+  grid-row: 3/-1;
   background-color: #faeab1;
   border-radius: 0.5rem;
 }
@@ -447,6 +448,7 @@ body {
   border-radius: 1rem;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input-amount-request-loan {
+  width: 58%;
   border: 0.3rem solid #88a47c;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
@@ -460,7 +462,7 @@ body {
   opacity: 75%;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .request-loan-confirmation {
-  width: 25.5rem;
+  width: 58%;
   height: 5.5rem;
   background-color: #88a47c;
   border-radius: 0.5rem;
@@ -511,8 +513,20 @@ body {
   color: #88a47c;
 }
 .dashboard .dashboard__main-page .downer-content-container .downer-left-content .sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   font-family: manrope-bold;
   cursor: pointer;
+}
+.dashboard .dashboard__main-page .downer-content-container .downer-left-content .sort .svg-sort {
+  margin-left: 0.1rem;
+  transform: rotate(0);
+  transition: all 200ms ease-in-out;
+}
+.dashboard .dashboard__main-page .downer-content-container .downer-left-content .sort .svg-sort--rotate {
+  transform: rotate(180deg);
 }
 .dashboard .dashboard__main-page .downer-content-container .downer-content-timer .timer {
   font-family: manrope-bold;
