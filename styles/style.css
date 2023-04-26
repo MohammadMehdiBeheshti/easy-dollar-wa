@@ -231,8 +231,75 @@ body {
 .dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn {
   width: 18rem;
   height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   background-color: #f55050;
   border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 200ms ease-in-out;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-text {
+  display: block;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .delete-account-username {
+  margin-right: 1rem;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .input {
+  width: 18rem;
+  height: 3rem;
+  padding: 0 0.5rem;
+  color: #212121;
+  background-color: transparent;
+  border: 0.3rem solid #323232;
+  border-radius: 0.3333333333rem;
+  font-family: manrope-semibold;
+  font-size: 1.4rem;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .input::-moz-placeholder {
+  color: #323232;
+  opacity: 80%;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .input::placeholder {
+  color: #323232;
+  opacity: 80%;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .btn {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  background-color: #323232;
+  border-radius: 0.3333333333rem;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn-show {
+  width: 47rem;
+  background-color: #00adb5;
+  cursor: default;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn-show .delete-account-text {
+  display: none;
+}
+.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn-show .delete-account-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .dashboard .dashboard__main-page {
   width: 100%;

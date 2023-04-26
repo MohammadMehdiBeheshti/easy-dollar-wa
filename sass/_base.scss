@@ -75,8 +75,65 @@ body {
 			.dashboard-delete-account-btn {
 				width: 18rem;
 				height: 5rem;
+				@include proFlex(row, center);
+				position: relative;
 				background-color: $redColor;
 				border-radius: calc($radius / 2);
+				overflow: hidden;
+				transition: all 200ms ease-in-out;
+
+				.delete-account-text {
+					display: block;
+				}
+
+				.delete-account-inputs {
+					@include proFlex(row, center, center, none);
+					@include positionCenter();
+
+					.delete-account-username {
+						margin-right: 1rem;
+					}
+
+					.input {
+						width: 18rem;
+						height: 3rem;
+						padding: 0 0.5rem;
+						color: $darkestColor;
+						background-color: transparent;
+						border: 0.3rem solid $secondaryColor;
+						border-radius: calc($radius / 3);
+						font-family: $manropeSemiBold;
+						font-size: 1.4rem;
+					}
+
+					.input::placeholder {
+						color: $secondaryColor;
+						opacity: 80%;
+					}
+
+					.btn {
+						width: 3rem;
+						height: 3rem;
+						@include proFlex(row);
+						margin-right: 1rem;
+						background-color: $secondaryColor;
+						border-radius: calc($radius / 3);
+					}
+				}
+			}
+
+			.dashboard-delete-account-btn-show {
+				width: 47rem;
+				background-color: $primaryColor;
+				cursor: default;
+
+				.delete-account-text {
+					display: none;
+				}
+
+				.delete-account-inputs {
+					@include proFlex(row);
+				}
 			}
 		}
 	}
