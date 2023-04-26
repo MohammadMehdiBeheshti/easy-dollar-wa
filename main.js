@@ -174,6 +174,7 @@ const displayTransactions = (movement, sort) => {
 				if (each !== 0) transactionContainer.append(renderTransaction(each, index));
 			});
 		} else {
+			transactionContainer.innerHTML = "";
 			movement.forEach((each, index) => {
 				if (each !== 0) transactionContainer.append(renderTransaction(each, index));
 			});
@@ -273,23 +274,27 @@ document.querySelector(".transfer-confirmation-btn").addEventListener("click", (
 	);
 	const possibleToTransfer = currentAccount.balance >= amountOfMoney && currentAccount.balance > 0;
 
-	if (possibleToTransfer) {
-		if (currentAccount.owner !== moneyReceiver.owner) {
-			if (amountOfMoney) {
-				currentAccount.movements.push(-amountOfMoney);
-				moneyReceiver.movements.push(amountOfMoney);
-				displayTransactions(currentAccount.movements);
-				updateBalance(currentAccount);
-				calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
-				notifier(1, `${amountOfMoney} transferred to ${moneyReceiver.owner}`);
+	if (amountOfMoney ?? transferInput) {
+		if (possibleToTransfer) {
+			if (moneyReceiver) {
+				if (currentAccount?.owner !== moneyReceiver.owner) {
+					currentAccount.movements.push(-amountOfMoney);
+					moneyReceiver.movements.push(amountOfMoney);
+					displayTransactions(currentAccount.movements);
+					updateBalance(currentAccount);
+					calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
+					notifier(1, `${amountOfMoney} transferred to ${moneyReceiver.owner}`);
+				} else {
+					notifier(0, "You can't transfer money to yourself!");
+				}
 			} else {
-				notifier(0, "Amount must be more than 0");
+				notifier(0, "User not found!");
 			}
 		} else {
-			notifier(0, "You can't transfer money to yourself!");
+			notifier(0, "No enough money ☹️");
 		}
 	} else {
-		notifier(0, "No enough money ☹️");
+		notifier(0, "Fill out the necessary fields");
 	}
 });
 
