@@ -139,9 +139,10 @@ const calSummaryInfo = (movement, interestRate = 1.2) => {
 	interestText.innerText = locNum(interest);
 };
 
+// FIXME: noTransacMsg;
 const noTransacMsg = document.querySelector(".empty-container");
 const transactionContainer = document.querySelector(".transactions-container");
-const displayTransactions = (movement) => {
+const displayTransactions = (movement, sort) => {
 	const renderTransaction = (element, i) => {
 		const transaction = document.createElement("li");
 		transaction.className = "transaction";
@@ -159,9 +160,24 @@ const displayTransactions = (movement) => {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
-		movement.forEach((each, index) => {
-			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
-		});
+		if (sort) {
+			const sortedMovements = movement.sort((a, b) => {
+				if (sort === 1) {
+					return a - b;
+				} else {
+					return b - a;
+				}
+			});
+
+			transactionContainer.innerHTML = "";
+			sortedMovements.forEach((each, index) => {
+				if (each !== 0) transactionContainer.append(renderTransaction(each, index));
+			});
+		} else {
+			movement.forEach((each, index) => {
+				if (each !== 0) transactionContainer.append(renderTransaction(each, index));
+			});
+		}
 	}
 
 	document.querySelectorAll(".transac-date__stat").forEach((each) => {
@@ -277,6 +293,27 @@ document.querySelector(".transfer-confirmation-btn").addEventListener("click", (
 	}
 });
 
+// Request Loan
+document.querySelector(".request-loan-confirmation").addEventListener("click", () => {
+	const loanRequestInput = document.querySelector(".input-amount-request-loan");
+	const loanAmount = Number(loanRequestInput.value);
+	const loanLimit = 10;
+	const includesTenPercent = currentAccount.movements.some(
+		(eachTransaction) => eachTransaction >= loanAmount / loanLimit
+	);
+
+	if (loanAmount && includesTenPercent) {
+		currentAccount.movements.push(loanAmount);
+		updateBalance(currentAccount);
+		displayTransactions(currentAccount.movements);
+		calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
+		loanRequestInput.value = "";
+		notifier(1, `${loanAmount} has been added to your account`);
+	} else {
+		notifier(0, "Error");
+	}
+});
+
 // Logout BTN
 document.querySelector(".dashboard__logout-btn").addEventListener("click", () => logOut());
 
@@ -316,6 +353,21 @@ document.querySelector(".delete-account-confirm").addEventListener("click", (e) 
 		}
 	} else {
 		notifier(0, "Fill out the necessary fields");
+	}
+});
+
+// Sort
+let repeat = true;
+const svgSort = document.querySelector(".svg-sort");
+document.querySelector(".sort").addEventListener("click", () => {
+	if (repeat) {
+		displayTransactions(currentAccount.movements, 1);
+		svgSort.classList.add("svg-sort--rotate");
+		repeat = false;
+	} else {
+		displayTransactions(currentAccount.movements, 2);
+		svgSort.classList.remove("svg-sort--rotate");
+		repeat = true;
 	}
 });
 
