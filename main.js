@@ -139,7 +139,6 @@ const calSummaryInfo = (movement, interestRate = 1.2) => {
 	interestText.innerText = locNum(interest);
 };
 
-// FIXME: noTransacMsg;
 const noTransacMsg = document.querySelector(".empty-container");
 const transactionContainer = document.querySelector(".transactions-container");
 const displayTransactions = (movement, sort) => {
@@ -156,7 +155,9 @@ const displayTransactions = (movement, sort) => {
 		return transaction;
 	};
 
-	if (movement.length <= 1) {
+	const doesNotPass = movement.length <= 1 || Number(movement.join("")) === 0;
+
+	if (doesNotPass) {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
