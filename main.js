@@ -104,11 +104,93 @@ const caseIns = (txt) => {
 	return txt.replace(/ /g, "").toLowerCase();
 };
 
-// TODO: Correct Time
-const displayGreetings = (user, time = "Welcome Back") => {
+//! Time();
+const timeChecker = (type = "time") => {
+	const date = new Date();
+
+	const locale = "en-US";
+
+	const fullTimeOptions = {
+		hour: "numeric",
+		minute: "numeric",
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	};
+
+	const dateOptions = {
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	};
+
+	const timeClockOption = {
+		hour: "numeric",
+		hour12: false,
+		minute: "numeric",
+	};
+
+	return new Intl.DateTimeFormat(
+		locale,
+		type === "date" ? dateOptions : type === "clock" ? timeClockOption : fullTimeOptions
+	).format(date);
+};
+
+const logOut = () => {
+	document.querySelector(".input-amount-money-transfer").value = "";
+	document.querySelector(".input-amount-request-loan").value = "";
+	document.querySelector(".input-transfer").value = "";
+
+	transactionContainer.innerHTML = "";
+	noTransacMsg.style.display = "block";
+
+	switchScreen(1);
+};
+
+let logOutTimeOut;
+const logOutTimer = (time = 1000) => {
+	const timerCountDown = document.querySelector(".timer");
+
+	let [min, sec] = [9, 60];
+
+	clearInterval(logOutTimeOut);
+	logOutTimeOut = setInterval(() => {
+		--sec;
+
+		if (sec === 0) {
+			--min;
+			sec = 60;
+		} else if (min === 0 && sec <= 1) {
+			sec = 0;
+		}
+
+		timerCountDown.innerText = `${min.toString().padStart(2, 0)} : ${sec.toString().padStart(2, 0)}`;
+
+		if (min === 0 && sec === 0) {
+			clearInterval(logOutTimeOut);
+			logOut();
+		}
+	}, time);
+};
+
+const displayGreetings = (user) => {
 	const greetingTitle = document.querySelector(".upper-container-greetings__info");
+	const greetingDate = document.querySelector(".greetings__date");
+	const [time, clock] = [timeChecker("time"), timeChecker("clock")];
+	const hour = +clock.substring(0, 2);
+
+	const event =
+		hour >= 5 && hour <= 11
+			? "Good Morning"
+			: hour >= 12 && hour <= 18
+			? "Good Afternoon"
+				? hour >= 19 && hour <= 23
+				: "Good Night"
+			: "Welcome Back";
+
 	const name = user.split(" ").at(0);
-	greetingTitle.innerText = `${time}, ${name}!`;
+	greetingTitle.innerText = `${event}, ${name}!`;
+	greetingDate.innerText = time;
 };
 
 const updateBalance = (account) => {
@@ -155,9 +237,9 @@ const displayTransactions = (movement, sort) => {
 		return transaction;
 	};
 
-	const doesNotPass = movement.length <= 1 || Number(movement.join("")) === 0;
+	const itDoesNotPass = movement.length <= 1 || Number(movement.join("")) === 0;
 
-	if (doesNotPass) {
+	if (itDoesNotPass) {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
@@ -188,17 +270,6 @@ const displayTransactions = (movement, sort) => {
 	});
 };
 
-const logOut = () => {
-	document.querySelector(".input-amount-money-transfer").value = "";
-	document.querySelector(".input-amount-request-loan").value = "";
-	document.querySelector(".input-transfer").value = "";
-
-	transactionContainer.innerHTML = "";
-	noTransacMsg.style.display = "block";
-
-	switchScreen(1);
-};
-
 // Register direct link
 document.querySelector(".login-form-cover__link").addEventListener("click", () => switchScreen(2));
 // LogIn direct link
@@ -224,6 +295,7 @@ document.querySelector(".logIn-form").addEventListener("submit", (e) => {
 				displayTransactions(eachUser.movements);
 				calSummaryInfo(eachUser.movements, eachUser.interestRate);
 				switchScreen(3);
+				logOutTimer();
 				currentAccount = eachUser;
 				e.currentTarget.reset();
 				break;
