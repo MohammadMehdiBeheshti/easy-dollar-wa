@@ -7,14 +7,14 @@ const users = [
 		balance: 0,
 		movements: [9000, 9000, 9000, 9000, 9000, 9000, 9000, 9000],
 		transactionDate: [
-			"01/11/2019",
-			"25/10/2020",
-			"14/07/2021",
-			"13/03/2022",
-			"02/07/2022",
-			"11/12/2022",
+			"07/14/2021",
+			"03/13/2022",
+			"04/30/2023",
+			"07/02/2022",
+			"10/25/2020",
+			"12/11/2022",
 			"04/20/2023",
-			"04/31/2023",
+			"11/01/2019",
 		],
 		interestRate: 2,
 	},
@@ -24,12 +24,13 @@ const users = [
 		password: "1",
 		balance: 0,
 		movements: [0],
+		transactionDate: [],
 		interestRate: 1.2,
 	},
 ];
 
 const addNewUser = (owner, password) => {
-	const newUser = { owner, password, balance: 0, movements: [0], interestRate: 1.1 };
+	const newUser = { owner, password, balance: 0, movements: [0], transactionDate: [], interestRate: 1.1 };
 	users.push(newUser);
 };
 
@@ -93,10 +94,11 @@ const caseIns = (txt) => {
 const timeChecker = (type = "time") => {
 	const date = new Date();
 
-	const locale = "en-US";
+	const locale = "en-GB";
 
 	const fullTimeOptions = {
 		hour: "numeric",
+		hour12: true,
 		minute: "numeric",
 		year: "numeric",
 		month: "2-digit",
@@ -202,57 +204,41 @@ const calSummaryInfo = (movement, interestRate = 1.2) => {
 
 const noTransacMsg = document.querySelector(".empty-container");
 const transactionContainer = document.querySelector(".transactions-container");
-const displayTransactions = (movement, sort) => {
-	const renderTransaction = (element, i) => {
+const displayTransactions = (account, sort) => {
+	const renderTransaction = (element, i, date) => {
 		const transaction = document.createElement("li");
 		transaction.className = "transaction";
 		transaction.innerHTML = `	
 		<div class="transac-date-time">
 		<span class="transac-date__stat">${i + 1} ${element > 0 ? "Deposit" : "Withdraw"}</span>
-		<span class="transaction__date">${i}</span>
+		<span class="transaction__date">${date}</span>
 		</div>
 		<h4 class="transaction-amount">${locNum(element)}</h4>
 		`;
 		return transaction;
 	};
 
-	const itDoesNotPass = movement.length <= 1 || Number(movement.join("")) === 0;
+	const itDoesNotPass = account.movements.length <= 1 || Number(account.movements.join("")) === 0;
 	if (itDoesNotPass) {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
-		const movements = sort ? movement.sort((a, b) => (sort === 1 ? a - b : b - a)) : movement;
+		const movements = sort ? account.movements.sort((a, b) => (sort === 1 ? a - b : b - a)) : account.movements;
+		const dates = sort
+			? account.transactionDate.sort((a, b) => {
+					const [aDay, aMonth, aYear] = a.split("/");
+					const [bDay, bMonth, bYear] = b.split("/");
+					const aDate = new Date(`${aYear}-${aMonth}-${aDay}`);
+					const bDate = new Date(`${bYear}-${bMonth}-${bDay}`);
+					return sort === 1 ? aDate - bDate : bDate - aDate;
+			  })
+			: account.transactionDate;
 
 		transactionContainer.innerHTML = "";
 		movements.forEach((each, index) => {
-			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
+			if (each !== 0) transactionContainer.append(renderTransaction(each, index, dates[index]));
 		});
 	}
-
-	// if (itDoesNotPass) {
-	// 	noTransacMsg.style.display = "block";
-	// } else {
-	// 	noTransacMsg.style.display = "none";
-	// 	if (sort) {
-	// 		const sortedMovements = movement.sort((a, b) => {
-	// 			if (sort === 1) {
-	// 				return a - b;
-	// 			} else {
-	// 				return b - a;
-	// 			}
-	// 		});
-
-	// 		transactionContainer.innerHTML = "";
-	// 		sortedMovements.forEach((each, index) => {
-	// 			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
-	// 		});
-	// 	} else {
-	// 		transactionContainer.innerHTML = "";
-	// 		movement.forEach((each, index) => {
-	// 			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
-	// 		});
-	// 	}
-	// }
 
 	document.querySelectorAll(".transac-date__stat").forEach((each) => {
 		const color = each.innerText.includes("Deposit") ? "#88a47c" : "#f55050";
@@ -278,10 +264,10 @@ document.querySelector(".logIn-form").addEventListener("submit", (e) => {
 			const doesPWmatch = passwordInput === eachUser.password;
 
 			if (doesUNmatch && doesPWmatch) {
-				notifier(1, "You Have successfully logged to your account");
+				notifier(1, "You Have successfully logged to your account", 1000);
 				updateBalance(eachUser);
 				displayGreetings(eachUser.owner);
-				displayTransactions(eachUser.movements);
+				displayTransactions(eachUser);
 				calSummaryInfo(eachUser.movements, eachUser.interestRate);
 				switchScreen(3);
 				logOutTimer();
@@ -342,7 +328,8 @@ document.querySelector(".transfer-confirmation-btn").addEventListener("click", (
 				if (currentAccount?.owner !== moneyReceiver.owner) {
 					currentAccount.movements.push(-amountOfMoney);
 					moneyReceiver.movements.push(amountOfMoney);
-					displayTransactions(currentAccount.movements);
+					currentAccount.transactionDate.push(timeChecker("date"));
+					displayTransactions(currentAccount);
 					updateBalance(currentAccount);
 					calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
 					notifier(1, `${amountOfMoney} transferred to ${moneyReceiver.owner}`);
@@ -372,7 +359,8 @@ document.querySelector(".request-loan-confirmation").addEventListener("click", (
 	if (loanAmount && includesTenPercent) {
 		currentAccount.movements.push(loanAmount);
 		updateBalance(currentAccount);
-		displayTransactions(currentAccount.movements);
+		currentAccount.transactionDate.push(timeChecker("date"));
+		displayTransactions(currentAccount);
 		calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
 		loanRequestInput.value = "";
 		notifier(1, `${loanAmount} has been added to your account`);
@@ -382,10 +370,7 @@ document.querySelector(".request-loan-confirmation").addEventListener("click", (
 });
 
 // Logout BTN
-document.querySelector(".dashboard__logout-btn").addEventListener("click", () => {
-	logOut();
-	alert("lolo");
-});
+document.querySelector(".dashboard__logout-btn").addEventListener("click", () => logOut());
 
 // Delete Account
 const deleteAccBTN = document.querySelector(".dashboard-delete-account-btn");
@@ -431,11 +416,11 @@ let repeat = true;
 const svgSort = document.querySelector(".svg-sort");
 document.querySelector(".sort").addEventListener("click", () => {
 	if (repeat) {
-		displayTransactions(currentAccount.movements, 1);
+		displayTransactions(currentAccount, 1);
 		svgSort.classList.add("svg-sort--rotate");
 		repeat = false;
 	} else {
-		displayTransactions(currentAccount.movements, 2);
+		displayTransactions(currentAccount, 2);
 		svgSort.classList.remove("svg-sort--rotate");
 		repeat = true;
 	}
