@@ -327,8 +327,9 @@ document.querySelector(".transfer-confirmation-btn").addEventListener("click", (
 			if (moneyReceiver) {
 				if (currentAccount?.owner !== moneyReceiver.owner) {
 					currentAccount.movements.push(-amountOfMoney);
-					moneyReceiver.movements.push(amountOfMoney);
 					currentAccount.transactionDate.push(timeChecker("date"));
+					moneyReceiver.movements.push(amountOfMoney);
+					moneyReceiver.transactionDate.push(timeChecker("date"));
 					displayTransactions(currentAccount);
 					updateBalance(currentAccount);
 					calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
