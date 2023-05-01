@@ -6,31 +6,17 @@ const users = [
 		password: "admin",
 		balance: 0,
 		movements: [9000, 9000, 9000, 9000, 9000, 9000, 9000, 9000],
+		transactionDate: [
+			"01/11/2019",
+			"25/10/2020",
+			"14/07/2021",
+			"13/03/2022",
+			"02/07/2022",
+			"11/12/2022",
+			"04/20/2023",
+			"04/31/2023",
+		],
 		interestRate: 2,
-	},
-
-	{
-		owner: "Jessica Eichmann",
-		password: "hailchrist000",
-		balance: 0,
-		movements: [200, -400, 450, 3000, -650, -130, 70, 1300],
-		interestRate: 1.5,
-	},
-
-	{
-		owner: "Scott Anderson",
-		password: "WLMhenrick421",
-		balance: 0,
-		movements: [400, -100, 250, 1000, -550, -730, 231, 1420],
-		interestRate: 1.2,
-	},
-
-	{
-		owner: "Joseph Himmler",
-		password: "whodidnineeleventony?",
-		balance: 0,
-		movements: [242, -410, 120, 4322, -1234, -1320, 33, 352],
-		interestRate: 1.4,
 	},
 
 	{
@@ -104,7 +90,6 @@ const caseIns = (txt) => {
 	return txt.replace(/ /g, "").toLowerCase();
 };
 
-//! Time();
 const timeChecker = (type = "time") => {
 	const date = new Date();
 
@@ -151,22 +136,16 @@ let logOutTimeOut;
 const logOutTimer = (time = 1000) => {
 	const timerCountDown = document.querySelector(".timer");
 
-	let [min, sec] = [9, 60];
+	let timer = 600;
 
 	clearInterval(logOutTimeOut);
 	logOutTimeOut = setInterval(() => {
-		--sec;
+		const minutes = String(Math.trunc(timer / 60)).padStart(2, 0);
+		const seconds = String(timer % 60).padStart(2, 0);
+		timerCountDown.innerText = `${minutes} : ${seconds}`;
+		timer--;
 
-		if (sec === 0) {
-			--min;
-			sec = 60;
-		} else if (min === 0 && sec <= 1) {
-			sec = 0;
-		}
-
-		timerCountDown.innerText = `${min.toString().padStart(2, 0)} : ${sec.toString().padStart(2, 0)}`;
-
-		if (min === 0 && sec === 0) {
+		if (timer === 0) {
 			clearInterval(logOutTimeOut);
 			logOut();
 		}
@@ -184,8 +163,8 @@ const displayGreetings = (user) => {
 			? "Good Morning"
 			: hour >= 12 && hour <= 18
 			? "Good Afternoon"
-				? hour >= 19 && hour <= 23
-				: "Good Night"
+			: hour >= 19 && hour <= 23
+			? "Good Night"
 			: "Welcome Back";
 
 	const name = user.split(" ").at(0);
@@ -230,7 +209,7 @@ const displayTransactions = (movement, sort) => {
 		transaction.innerHTML = `	
 		<div class="transac-date-time">
 		<span class="transac-date__stat">${i + 1} ${element > 0 ? "Deposit" : "Withdraw"}</span>
-		<span class="transaction__date">${null}</span>
+		<span class="transaction__date">${i}</span>
 		</div>
 		<h4 class="transaction-amount">${locNum(element)}</h4>
 		`;
@@ -238,31 +217,42 @@ const displayTransactions = (movement, sort) => {
 	};
 
 	const itDoesNotPass = movement.length <= 1 || Number(movement.join("")) === 0;
-
 	if (itDoesNotPass) {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
-		if (sort) {
-			const sortedMovements = movement.sort((a, b) => {
-				if (sort === 1) {
-					return a - b;
-				} else {
-					return b - a;
-				}
-			});
+		const movements = sort ? movement.sort((a, b) => (sort === 1 ? a - b : b - a)) : movement;
 
-			transactionContainer.innerHTML = "";
-			sortedMovements.forEach((each, index) => {
-				if (each !== 0) transactionContainer.append(renderTransaction(each, index));
-			});
-		} else {
-			transactionContainer.innerHTML = "";
-			movement.forEach((each, index) => {
-				if (each !== 0) transactionContainer.append(renderTransaction(each, index));
-			});
-		}
+		transactionContainer.innerHTML = "";
+		movements.forEach((each, index) => {
+			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
+		});
 	}
+
+	// if (itDoesNotPass) {
+	// 	noTransacMsg.style.display = "block";
+	// } else {
+	// 	noTransacMsg.style.display = "none";
+	// 	if (sort) {
+	// 		const sortedMovements = movement.sort((a, b) => {
+	// 			if (sort === 1) {
+	// 				return a - b;
+	// 			} else {
+	// 				return b - a;
+	// 			}
+	// 		});
+
+	// 		transactionContainer.innerHTML = "";
+	// 		sortedMovements.forEach((each, index) => {
+	// 			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
+	// 		});
+	// 	} else {
+	// 		transactionContainer.innerHTML = "";
+	// 		movement.forEach((each, index) => {
+	// 			if (each !== 0) transactionContainer.append(renderTransaction(each, index));
+	// 		});
+	// 	}
+	// }
 
 	document.querySelectorAll(".transac-date__stat").forEach((each) => {
 		const color = each.innerText.includes("Deposit") ? "#88a47c" : "#f55050";
@@ -288,7 +278,6 @@ document.querySelector(".logIn-form").addEventListener("submit", (e) => {
 			const doesPWmatch = passwordInput === eachUser.password;
 
 			if (doesUNmatch && doesPWmatch) {
-				// TODO: Time
 				notifier(1, "You Have successfully logged to your account");
 				updateBalance(eachUser);
 				displayGreetings(eachUser.owner);
@@ -393,7 +382,10 @@ document.querySelector(".request-loan-confirmation").addEventListener("click", (
 });
 
 // Logout BTN
-document.querySelector(".dashboard__logout-btn").addEventListener("click", () => logOut());
+document.querySelector(".dashboard__logout-btn").addEventListener("click", () => {
+	logOut();
+	alert("lolo");
+});
 
 // Delete Account
 const deleteAccBTN = document.querySelector(".dashboard-delete-account-btn");
