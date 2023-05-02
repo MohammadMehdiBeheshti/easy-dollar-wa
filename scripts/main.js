@@ -7,14 +7,14 @@ const users = [
 		balance: 0,
 		movements: [9000, 9000, 9000, 9000, 9000, 9000, 9000, 9000],
 		transactionDate: [
-			"07/14/2021",
-			"03/13/2022",
-			"04/30/2023",
-			"07/02/2022",
-			"10/25/2020",
-			"12/11/2022",
+			"05/02/2023",
 			"04/20/2023",
-			"11/01/2019",
+			"04/30/2021",
+			"01/21/2020",
+			"10/25/2019",
+			"12/01/2018",
+			"08/22/2017",
+			"09/11/2016",
 		],
 		interestRate: 2,
 	},
@@ -94,7 +94,7 @@ const caseIns = (txt) => {
 const timeChecker = (type = "time") => {
 	const date = new Date();
 
-	const locale = "en-GB";
+	const locale = "en-US";
 
 	const fullTimeOptions = {
 		hour: "numeric",
@@ -205,13 +205,20 @@ const calSummaryInfo = (movement, interestRate = 1.2) => {
 const noTransacMsg = document.querySelector(".empty-container");
 const transactionContainer = document.querySelector(".transactions-container");
 const displayTransactions = (account, sort) => {
+	const compareTime = (date1, date2) => {
+		const days = (Number(new Date(date1)) - Number(new Date(date2))) / (1000 * 60 * 60 * 24);
+		const result =
+			days === 0 ? "Today" : days === 1 ? "Yesterday" : days >= 2 && days <= 30 ? `${days} Days ago` : date2;
+		return result;
+	};
+
 	const renderTransaction = (element, i, date) => {
 		const transaction = document.createElement("li");
 		transaction.className = "transaction";
 		transaction.innerHTML = `	
 		<div class="transac-date-time">
 		<span class="transac-date__stat">${i + 1} ${element > 0 ? "Deposit" : "Withdraw"}</span>
-		<span class="transaction__date">${date}</span>
+		<span class="transaction__date">${compareTime(timeChecker("date"), date)}</span>
 		</div>
 		<h4 class="transaction-amount">${locNum(element)}</h4>
 		`;
@@ -219,24 +226,16 @@ const displayTransactions = (account, sort) => {
 	};
 
 	const itDoesNotPass = account.movements.length <= 1 || Number(account.movements.join("")) === 0;
+
 	if (itDoesNotPass) {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
 		const movements = sort ? account.movements.sort((a, b) => (sort === 1 ? a - b : b - a)) : account.movements;
-		const dates = sort
-			? account.transactionDate.sort((a, b) => {
-					const [aDay, aMonth, aYear] = a.split("/");
-					const [bDay, bMonth, bYear] = b.split("/");
-					const aDate = new Date(`${aYear}-${aMonth}-${aDay}`);
-					const bDate = new Date(`${bYear}-${bMonth}-${bDay}`);
-					return sort === 1 ? aDate - bDate : bDate - aDate;
-			  })
-			: account.transactionDate;
 
 		transactionContainer.innerHTML = "";
 		movements.forEach((each, index) => {
-			if (each !== 0) transactionContainer.append(renderTransaction(each, index, dates[index]));
+			if (each !== 0) transactionContainer.append(renderTransaction(each, index, account.transactionDate[index]));
 		});
 	}
 
