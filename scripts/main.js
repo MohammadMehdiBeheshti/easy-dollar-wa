@@ -5,16 +5,15 @@ const users = [
 		owner: "Admin",
 		password: "admin",
 		balance: 0,
-		movements: [9000, 9000, 9000, 9000, 9000, 9000, 9000, 9000],
-		transactionDate: [
-			"05/02/2023",
-			"04/20/2023",
-			"04/30/2021",
-			"01/21/2020",
-			"10/25/2019",
-			"12/01/2018",
-			"08/22/2017",
-			"09/11/2016",
+		movements: [
+			{ amount: 9000, date: "05/02/2023" },
+			{ amount: 8000, date: "04/20/2023" },
+			{ amount: 7000, date: "04/30/2021" },
+			{ amount: 6000, date: "01/21/2020" },
+			{ amount: 5000, date: "10/25/2019" },
+			{ amount: 4000, date: "12/01/2018" },
+			{ amount: 3000, date: "08/22/2017" },
+			{ amount: 2000, date: "09/11/2016" },
 		],
 		interestRate: 2,
 	},
@@ -23,18 +22,24 @@ const users = [
 		owner: "1",
 		password: "1",
 		balance: 0,
-		movements: [0],
-		transactionDate: [],
-		interestRate: 1.2,
+		movements: [{ amount: 0, date: "-" }],
+		interestRate: 2,
 	},
 ];
 
-const addNewUser = (owner, password) => {
-	const newUser = { owner, password, balance: 0, movements: [0], transactionDate: [], interestRate: 1.1 };
-	users.push(newUser);
-};
+function addNewUser(owner, password) {
+	const newUser = {
+		owner,
+		password,
+		balance: 0,
+		movements: [{ amount: 0, date: timeChecker("date") }],
+		interestRate: 1.1,
+	};
 
-const switchScreen = (screen) => {
+	users.push(newUser);
+}
+
+function switchScreen(screen) {
 	const dashboard = document.querySelector(".dashboard");
 	const loginFormCover = document.querySelector(".login-form-cover");
 	const registerFormCover = document.querySelector(".register-form-cover");
@@ -52,26 +57,9 @@ const switchScreen = (screen) => {
 		registerFormCover.style.display = "none";
 		dashboard.style.display = "block";
 	}
-};
+}
 
-let notificationDisappearTime;
-const notifier = (stat, text = "There was a problem!", timeOut = 2000) => {
-	const toastNotification = document.querySelector(".notification");
-	const toastIMG = document.querySelector(".notification__img");
-	const toastText = document.querySelector(".notification__text");
-
-	toastIMG.src = `./files/images/${stat ? "check" : "error"}-svg.svg`;
-	toastText.innerText = text;
-	toastNotification.style.backgroundColor = stat ? "#87CBB9" : "#FF7C7C";
-	toastNotification.classList.add("notification-show");
-
-	clearTimeout(notificationDisappearTime);
-	notificationDisappearTime = setTimeout(() => {
-		toastNotification.classList.remove("notification-show");
-	}, timeOut);
-};
-
-const formValidation = (type, txt) => {
+function formValidation(type, txt) {
 	const regexForPass = /^(?=.*[!@#$%^&*()_+={}|[\]\\:;"'<>,.?/])(?=.*[A-Z]).+$/;
 	const isItMoreThanEight = txt.length >= 8;
 
@@ -80,18 +68,18 @@ const formValidation = (type, txt) => {
 	} else {
 		return txt.includes(" ");
 	}
-};
+}
 
-const locNum = (num) => {
+function locNum(num) {
 	const options = { style: "currency", currency: "USD" };
 	return num.toLocaleString("en-US", options);
-};
+}
 
-const caseIns = (txt) => {
+function caseIns(txt) {
 	return txt.replace(/ /g, "").toLowerCase();
-};
+}
 
-const timeChecker = (type = "time") => {
+function timeChecker(type = "time") {
 	const date = new Date();
 
 	const locale = "en-US";
@@ -121,9 +109,9 @@ const timeChecker = (type = "time") => {
 		locale,
 		type === "date" ? dateOptions : type === "clock" ? timeClockOption : fullTimeOptions
 	).format(date);
-};
+}
 
-const logOut = () => {
+function logOut() {
 	document.querySelector(".input-amount-money-transfer").value = "";
 	document.querySelector(".input-amount-request-loan").value = "";
 	document.querySelector(".input-transfer").value = "";
@@ -132,10 +120,27 @@ const logOut = () => {
 	noTransacMsg.style.display = "block";
 
 	switchScreen(1);
-};
+}
+
+let notificationDisappearTime;
+function notifier(stat, text = "There was a problem!", timeOut = 2000) {
+	const toastNotification = document.querySelector(".notification");
+	const toastIMG = document.querySelector(".notification__img");
+	const toastText = document.querySelector(".notification__text");
+
+	toastIMG.src = `./files/images/${stat ? "check" : "error"}-svg.svg`;
+	toastText.innerText = text;
+	toastNotification.style.backgroundColor = stat ? "#87CBB9" : "#FF7C7C";
+	toastNotification.classList.add("notification-show");
+
+	clearTimeout(notificationDisappearTime);
+	notificationDisappearTime = setTimeout(() => {
+		toastNotification.classList.remove("notification-show");
+	}, timeOut);
+}
 
 let logOutTimeOut;
-const logOutTimer = (time = 1000) => {
+function logOutTimer(time = 1000) {
 	const timerCountDown = document.querySelector(".timer");
 
 	let timer = 600;
@@ -152,9 +157,9 @@ const logOutTimer = (time = 1000) => {
 			logOut();
 		}
 	}, time);
-};
+}
 
-const displayGreetings = (user) => {
+function displayGreetings(user) {
 	const greetingTitle = document.querySelector(".upper-container-greetings__info");
 	const greetingDate = document.querySelector(".greetings__date");
 	const [time, clock] = [timeChecker("time"), timeChecker("clock")];
@@ -172,15 +177,18 @@ const displayGreetings = (user) => {
 	const name = user.split(" ").at(0);
 	greetingTitle.innerText = `${event}, ${name}!`;
 	greetingDate.innerText = time;
-};
+}
 
-const updateBalance = (account) => {
+function updateBalance(account) {
 	const accountBalance = document.querySelector(".balance");
-	account.balance = account.movements.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-	accountBalance.innerText = locNum(account.balance);
-};
+	account.balance = account.movements
+		.map((each) => each.amount)
+		.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-const calSummaryInfo = (movement, interestRate = 1.2) => {
+	accountBalance.innerText = locNum(account.balance);
+}
+
+function calSummaryInfo(movement, interestRate = 1.2) {
 	const incomeText = document.querySelector(".in");
 	const outcomeText = document.querySelector(".out");
 	const interestText = document.querySelector(".interest");
@@ -200,11 +208,11 @@ const calSummaryInfo = (movement, interestRate = 1.2) => {
 	incomeText.innerText = locNum(income);
 	outcomeText.innerText = locNum(Math.abs(outcome));
 	interestText.innerText = locNum(interest);
-};
+}
 
 const noTransacMsg = document.querySelector(".empty-container");
 const transactionContainer = document.querySelector(".transactions-container");
-const displayTransactions = (account, sort) => {
+function displayTransactions(account, sort) {
 	const compareTime = (date1, date2) => {
 		const days = (Number(new Date(date1)) - Number(new Date(date2))) / (1000 * 60 * 60 * 24);
 		const result =
@@ -212,30 +220,36 @@ const displayTransactions = (account, sort) => {
 		return result;
 	};
 
-	const renderTransaction = (element, i, date) => {
+	const renderTransaction = (element, i) => {
 		const transaction = document.createElement("li");
 		transaction.className = "transaction";
-		transaction.innerHTML = `	
+		transaction.innerHTML = `
 		<div class="transac-date-time">
-		<span class="transac-date__stat">${i + 1} ${element > 0 ? "Deposit" : "Withdraw"}</span>
-		<span class="transaction__date">${compareTime(timeChecker("date"), date)}</span>
+		<span class="transac-date__stat">${i + 1} ${element.amount > 0 ? "Deposit" : "Withdraw"}</span>
+		<span class="transaction__date">${compareTime(timeChecker("date"), element.date)}</span>
 		</div>
-		<h4 class="transaction-amount">${locNum(element)}</h4>
+		<h4 class="transaction-amount">${locNum(element.amount)}</h4>
 		`;
 		return transaction;
 	};
 
-	const itDoesNotPass = account.movements.length <= 1 || Number(account.movements.join("")) === 0;
+	const itDoesNotPass =
+		account.movements.map((each) => each.amount).length <= 1 ||
+		Number(account.movements.map((each) => each.amount).join("")) === 0;
 
 	if (itDoesNotPass) {
 		noTransacMsg.style.display = "block";
 	} else {
 		noTransacMsg.style.display = "none";
-		const movements = sort ? account.movements.sort((a, b) => (sort === 1 ? a - b : b - a)) : account.movements;
+
+		const movements = sort
+			? account.movements.sort((a, b) => (sort === 1 ? a.amount - b.amount : b.amount - a.amount))
+			: account.movements;
 
 		transactionContainer.innerHTML = "";
+
 		movements.forEach((each, index) => {
-			if (each !== 0) transactionContainer.append(renderTransaction(each, index, account.transactionDate[index]));
+			if (each.amount !== 0) transactionContainer.append(renderTransaction(each, index));
 		});
 	}
 
@@ -243,7 +257,7 @@ const displayTransactions = (account, sort) => {
 		const color = each.innerText.includes("Deposit") ? "#88a47c" : "#f55050";
 		each.style.backgroundColor = color;
 	});
-};
+}
 
 // Register direct link
 document.querySelector(".login-form-cover__link").addEventListener("click", () => switchScreen(2));
@@ -267,7 +281,10 @@ document.querySelector(".logIn-form").addEventListener("submit", (e) => {
 				updateBalance(eachUser);
 				displayGreetings(eachUser.owner);
 				displayTransactions(eachUser);
-				calSummaryInfo(eachUser.movements, eachUser.interestRate);
+				calSummaryInfo(
+					eachUser.movements.map((each) => each.amount),
+					eachUser.interestRate
+				);
 				switchScreen(3);
 				logOutTimer();
 				currentAccount = eachUser;
@@ -325,13 +342,14 @@ document.querySelector(".transfer-confirmation-btn").addEventListener("click", (
 		if (possibleToTransfer) {
 			if (moneyReceiver) {
 				if (currentAccount?.owner !== moneyReceiver.owner) {
-					currentAccount.movements.push(-amountOfMoney);
-					currentAccount.transactionDate.push(timeChecker("date"));
-					moneyReceiver.movements.push(amountOfMoney);
-					moneyReceiver.transactionDate.push(timeChecker("date"));
+					currentAccount.movements.push({ amount: -amountOfMoney, date: timeChecker("date") });
+					moneyReceiver.movements.push({ amount: amountOfMoney, date: timeChecker("date") });
 					displayTransactions(currentAccount);
 					updateBalance(currentAccount);
-					calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
+					calSummaryInfo(
+						currentAccount.movements.map((each) => each.amount),
+						currentAccount.interestRate
+					);
 					notifier(1, `${amountOfMoney} transferred to ${moneyReceiver.owner}`);
 				} else {
 					notifier(0, "You can't transfer money to yourself!");
@@ -352,16 +370,18 @@ document.querySelector(".request-loan-confirmation").addEventListener("click", (
 	const loanRequestInput = document.querySelector(".input-amount-request-loan");
 	const loanAmount = Number(loanRequestInput.value);
 	const loanLimit = 10;
-	const includesTenPercent = currentAccount.movements.some(
-		(eachTransaction) => eachTransaction >= loanAmount / loanLimit
-	);
+	const includesTenPercent = currentAccount.movements
+		.map((each) => each.amount)
+		.some((eachTransaction) => eachTransaction >= loanAmount / loanLimit);
 
 	if (loanAmount && includesTenPercent) {
-		currentAccount.movements.push(loanAmount);
+		currentAccount.movements.push({ amount: loanAmount, date: timeChecker("date") });
 		updateBalance(currentAccount);
-		currentAccount.transactionDate.push(timeChecker("date"));
 		displayTransactions(currentAccount);
-		calSummaryInfo(currentAccount.movements, currentAccount.interestRate);
+		calSummaryInfo(
+			currentAccount.movements.map((each) => each.amount),
+			currentAccount.interestRate
+		);
 		loanRequestInput.value = "";
 		notifier(1, `${loanAmount} has been added to your account`);
 	} else {
