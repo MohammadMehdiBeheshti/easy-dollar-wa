@@ -116,7 +116,8 @@ function logOut() {
 	document.querySelector(".input-amount-request-loan").value = "";
 	document.querySelector(".input-transfer").value = "";
 
-	transactionContainer.innerHTML = "";
+	transactionContainer.querySelectorAll(".transaction").forEach((each) => each.remove());
+
 	noTransacMsg.style.display = "block";
 
 	switchScreen(1);
@@ -246,7 +247,7 @@ function displayTransactions(account, sort) {
 			? account.movements.sort((a, b) => (sort === 1 ? a.amount - b.amount : b.amount - a.amount))
 			: account.movements;
 
-		transactionContainer.innerHTML = "";
+		transactionContainer.querySelectorAll(".transaction").forEach((each) => console.log(each));
 
 		movements.forEach((each, index) => {
 			if (each.amount !== 0) transactionContainer.append(renderTransaction(each, index));
