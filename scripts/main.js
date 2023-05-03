@@ -311,12 +311,20 @@ document.querySelector(".register-form").addEventListener("submit", (e) => {
 		if (formValidation("username", username)) {
 			if (formValidation("pass", password)) {
 				if (passConfirmation === password) {
-					addNewUser(username, password);
-					notifier(1, "Your account has been created, Now LogIn");
-					switchScreen(1);
-					e.currentTarget.reset();
+					const unAlreadyExist = users.find(
+						(each) => each.owner === username || caseIns(each.owner) === caseIns(username)
+					);
+
+					if (!unAlreadyExist) {
+						addNewUser(username, password);
+						notifier(1, "Your account has been created, Now LogIn");
+						switchScreen(1);
+						e.currentTarget.reset();
+					} else {
+						notifier(0, "A user with this username already exist!");
+					}
 				} else {
-					notifier(0, "Password does not match");
+					notifier(0, "Confirm your password");
 				}
 			} else {
 				notifier(0, "Choose a proper password");
