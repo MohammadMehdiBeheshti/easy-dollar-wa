@@ -117,7 +117,6 @@ function logOut() {
 	document.querySelector(".input-transfer").value = "";
 
 	transactionContainer.querySelectorAll(".transaction").forEach((each) => each.remove());
-
 	noTransacMsg.style.display = "block";
 
 	switchScreen(1);
