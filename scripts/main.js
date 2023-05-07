@@ -123,7 +123,7 @@ function logOut() {
 }
 
 let notificationDisappearTime;
-function notifier(stat, text = "There was a problem!", timeOut = 2000) {
+function notifier(stat, text = "There was a problem!", timeOut = 3000) {
 	const toastNotification = document.querySelector(".notification");
 	const toastIMG = document.querySelector(".notification__img");
 	const toastText = document.querySelector(".notification__text");
