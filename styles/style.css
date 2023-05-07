@@ -151,9 +151,7 @@ table {
 
 html {
   font-size: 10px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 body {
@@ -267,10 +265,6 @@ body {
   border-radius: 0.3333333333rem;
   font-family: manrope-semibold;
   font-size: 1.4rem;
-}
-.dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .input::-moz-placeholder {
-  color: #323232;
-  opacity: 80%;
 }
 .dashboard .dashboard__navigation .btn-container .dashboard-delete-account-btn .delete-account-inputs .input::placeholder {
   color: #323232;
@@ -420,10 +414,6 @@ body {
 .dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input {
   grid-column: 1/2;
 }
-.dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input::-moz-placeholder {
-  color: #faeab1;
-  opacity: 60%;
-}
 .dashboard .dashboard__main-page .dashboard__money-management .money-transfer-container .money-man-trans-container .input::placeholder {
   color: #faeab1;
   opacity: 60%;
@@ -452,10 +442,6 @@ body {
   border: 0.3rem solid #88a47c;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
-}
-.dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input::-moz-placeholder {
-  color: #88a47c;
-  opacity: 75%;
 }
 .dashboard .dashboard__main-page .dashboard__money-management .loan-request-container .input::placeholder {
   color: #88a47c;
@@ -640,7 +626,6 @@ body {
 }
 
 .notification {
-  width: -moz-fit-content;
   width: fit-content;
   height: 7rem;
   padding: 0 1.5rem;
@@ -668,4 +653,4 @@ body {
   transform: scale(1);
   opacity: 100%;
   top: 1rem;
-}/*# sourceMappingURL=style.css.map */
+}
