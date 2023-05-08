@@ -1,9 +1,16 @@
-// import { src, dest, watch, series } from "gulp";
-const gulp = require("gulp");
+"use strict";
+
+const { src, dest, watch, series } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 
-function sassCompiler() {
-	return gulp.src("./styles/style.scss").pipe(sass().on("error", sass.logError)).pipe(gulp.dest("./styles"));
-}
+const sassFilePath = "./styles/style.scss" && "./styles/**/*.scss";
 
-exports.default = gulp.series(sassCompiler);
+const buildStyles = () => {
+	return src(sassFilePath).pipe(sass()).pipe(dest("./styles/"));
+};
+
+const watchSass = () => {
+	watch(sassFilePath, buildStyles);
+};
+
+exports.default = series(buildStyles, watchSass);
