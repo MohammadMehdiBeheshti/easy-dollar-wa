@@ -53,7 +53,7 @@ body {
 
 // Dashboard
 .dashboard {
-	width: 75%;
+	width: 80%;
 	display: none;
 	@include positionCenter();
 
@@ -104,7 +104,7 @@ body {
 						padding: 0 0.5rem;
 						color: $darkestColor;
 						background-color: transparent;
-						border: 0.3rem solid $secondaryColor;
+						border: baseBorder($secondaryColor);
 						border-radius: calc($radius / 3);
 						font-family: $manropeSemiBold;
 						font-size: 1.4rem;
@@ -179,7 +179,7 @@ body {
 				grid-row: 1 / 3;
 				position: relative;
 				background-color: $secondaryColor;
-				border: $baseBorder;
+				border: baseBorder($grayColor);
 				border-radius: $radius;
 				overflow-y: scroll;
 				overflow-x: hidden;
@@ -237,7 +237,7 @@ body {
 				padding: 2rem 0;
 				background-color: rgb(250, 234, 177, 0.1);
 				color: $yellowColor;
-				border: 0.3rem solid $yellowColor;
+				border: baseBorder($yellowColor);
 				border-radius: $radius;
 
 				.money-man-trans-container {
@@ -246,11 +246,10 @@ body {
 					justify-content: center;
 					justify-items: center;
 					gap: 2rem;
-					// grid-template-rows: 10rem 5rem;
 
 					.input-amount-money-transfer {
 						width: 100%;
-						border: 0.3rem solid $yellowColor;
+						border: baseBorder($yellowColor);
 						border-radius: calc($radius / 2);
 					}
 
@@ -258,7 +257,7 @@ body {
 						width: 100%;
 						height: 5.5rem;
 						padding: 0 2rem;
-						border: 0.3rem solid $yellowColor;
+						border: baseBorder($yellowColor);
 						border-radius: calc($radius / 2);
 					}
 
@@ -287,12 +286,12 @@ body {
 				@include proFlex(column);
 				background-color: rgb(136, 164, 124, 0.1);
 				color: $greenColor;
-				border: 0.3rem solid $greenColor;
+				border: baseBorder($greenColor);
 				border-radius: $radius;
 
 				.input-amount-request-loan {
 					width: 58%;
-					border: 0.3rem solid $greenColor;
+					border: baseBorder($greenColor);
 					border-radius: calc($radius / 2);
 					margin-bottom: 2rem;
 				}
@@ -388,10 +387,10 @@ body {
 // LogIn Form
 .login-form-cover {
 	width: 50rem;
-	@include proFlex(column, center, center, flex);
+	@include proFlex(column, center, center, none);
 	@include positionCenter();
 	background-color: $secondaryColor;
-	border: $baseBorder;
+	border: baseBorder($grayColor);
 	border-radius: $radius;
 	padding: 3rem 0 3rem 0;
 
@@ -404,7 +403,7 @@ body {
 			@include proFlex(row, space-between);
 			padding-left: 2rem;
 			padding-right: 2rem;
-			border: $baseBorder;
+			border: baseBorder($grayColor);
 			border-radius: $radius;
 			margin-bottom: 3rem;
 
@@ -445,7 +444,7 @@ body {
 	@include proFlex(column, center, center, none);
 	@include positionCenter();
 	background-color: $secondaryColor;
-	border: $baseBorder;
+	border: baseBorder($grayColor);
 	border-radius: $radius;
 	padding: 3rem 0 3rem 0;
 
@@ -458,7 +457,7 @@ body {
 			@include proFlex(row, space-between);
 			padding-left: 2rem;
 			padding-right: 2rem;
-			border: $baseBorder;
+			border: baseBorder($grayColor);
 			border-radius: $radius;
 			margin-bottom: 3rem;
 
@@ -488,6 +487,7 @@ body {
 	}
 }
 
+// Notification
 .notification {
 	width: fit-content;
 	height: 7rem;
@@ -510,6 +510,7 @@ body {
 	}
 }
 
+// Notification-show
 .notification-show {
 	transform: scale(1);
 	opacity: 100%;

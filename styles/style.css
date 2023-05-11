@@ -193,7 +193,7 @@ body {
 }
 
 .dashboard {
-  width: 75%;
+  width: 80%;
   display: none;
   position: absolute;
   top: 50%;
@@ -521,7 +521,7 @@ body {
 
 .login-form-cover {
   width: 50rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
