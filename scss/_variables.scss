@@ -14,8 +14,12 @@ $manropeSemiBold: manrope-semibold;
 $manropeMedium: manrope-medium;
 
 // Base Values
-$baseBorder: 0.3rem solid $grayColor;
 $radius: 1rem;
+
+// Base Border
+@function baseBorder($color, $size: 0.3rem) {
+	@return $size solid $color;
+}
 
 // Scss Mixins
 @mixin proFlex($direction, $jc: center, $ai: center, $display: flex) {
