@@ -454,4 +454,4 @@ document.querySelector(".sort").addEventListener("click", () => {
 	}
 });
 
-switchScreen(3);
+// switchScreen(3);
