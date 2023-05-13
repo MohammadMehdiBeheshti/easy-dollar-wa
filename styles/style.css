@@ -159,7 +159,6 @@ body {
   font-size: 1.6rem;
   background-color: #212121;
   color: #ffffff;
-  min-height: 100vh;
 }
 
 .input {
@@ -190,6 +189,88 @@ body {
   border: none;
   border-radius: 1rem;
   cursor: pointer;
+}
+
+.link {
+  display: inline-block;
+  font-family: manrope-semibold;
+  text-decoration: none;
+}
+.link::after {
+  content: "";
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #00adb5;
+  border-radius: 0.1rem;
+  width: 0;
+  height: 0.2rem;
+  margin-top: 5%;
+  transition: width 200ms ease-in-out;
+}
+.link:hover::after {
+  width: 100%;
+}
+
+.representation-page {
+  width: 80%;
+  margin: 2rem auto 0 auto;
+}
+.representation-page .representation-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+.representation-page .representation-navigation .navigation-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.representation-page .representation-navigation .navigation-list .navigation-lists {
+  margin-inline: 2rem;
+  font-family: manrope-bold;
+  font-size: 2rem;
+}
+.representation-page .representation-navigation .navigation-list .navigation-lists .navigation-links {
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 200ms ease-in-out;
+}
+.representation-page .representation-navigation .navigation-list .navigation-lists .navigation-links:hover {
+  font-size: 2.2rem;
+  color: #00adb5;
+}
+.representation-page .representation-navigation .navigation-account-open {
+  width: 18rem;
+  height: 4.5rem;
+}
+.representation-page .representation-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.representation-page .representation-banner .banner__texts .banner__texts-title {
+  font-family: manrope-bold;
+  font-size: 5.5rem;
+  margin-bottom: 2.2rem;
+}
+.representation-page .representation-banner .banner__texts .banner__texts-par {
+  font-size: 2.2rem;
+  margin-bottom: 2.2rem;
+}
+.representation-page .representation-banner .banner__texts .banner__link {
+  font-size: 1.6rem;
+  color: #00adb5;
+}
+.representation-page .representation-banner .banner__image {
+  max-width: 60rem;
+}
+.representation-page .representation-banner .banner__image svg {
+  width: 100%;
 }
 
 .dashboard {

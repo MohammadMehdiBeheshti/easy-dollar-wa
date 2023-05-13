@@ -18,7 +18,6 @@ body {
 	font-size: 1.6rem;
 	background-color: $darkestColor;
 	color: $whiteColor;
-	min-height: 100vh;
 }
 
 .input {
@@ -49,6 +48,98 @@ body {
 	border: none;
 	border-radius: $radius;
 	cursor: pointer;
+}
+
+.link {
+	display: inline-block;
+	font-family: $manropeSemiBold;
+	text-decoration: none;
+
+	&::after {
+		content: "";
+		display: block;
+		top: 0;
+		left: 0;
+		background-color: $primaryColor;
+		border-radius: 0.1rem;
+		width: 0;
+		height: 0.2rem;
+		margin-top: 5%;
+		transition: width 200ms ease-in-out;
+	}
+
+	&:hover {
+		&::after {
+			width: 100%;
+		}
+	}
+}
+
+// Representation Page
+.representation-page {
+	width: 80%;
+	margin: 2rem auto 0 auto;
+
+	.representation-navigation {
+		@include proFlex(row, space-between);
+		margin-bottom: 6rem;
+
+		.navigation-list {
+			@include proFlex(row);
+
+			.navigation-lists {
+				margin-inline: 2rem;
+				font-family: $manropeBold;
+				font-size: 2rem;
+
+				.navigation-links {
+					text-decoration: none;
+					color: $whiteColor;
+					transition: all 200ms ease-in-out;
+
+					&:hover {
+						font-size: 2.2rem;
+						color: $primaryColor;
+					}
+				}
+			}
+		}
+
+		.navigation-account-open {
+			width: 18rem;
+			height: 4.5rem;
+		}
+	}
+
+	.representation-banner {
+		@include proFlex(row);
+
+		.banner__texts {
+			.banner__texts-title {
+				font-family: $manropeBold;
+				font-size: 5.5rem;
+				margin-bottom: 2.2rem;
+			}
+
+			.banner__texts-par {
+				font-size: 2.2rem;
+				margin-bottom: 2.2rem;
+			}
+
+			.banner__link {
+				font-size: 1.6rem;
+				color: $primaryColor;
+			}
+		}
+
+		.banner__image {
+			max-width: 60rem;
+
+			svg {
+				width: 100%;
+			}
+		}
+	}
 }
 
 // Dashboard
