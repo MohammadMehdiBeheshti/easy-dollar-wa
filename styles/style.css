@@ -213,6 +213,7 @@ body {
 }
 
 .representation-page {
+  display: block;
   width: 80%;
   margin: 2rem auto 0 auto;
 }
@@ -221,7 +222,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6rem;
+  margin-bottom: 13rem;
 }
 .representation-page .representation-navigation .navigation-list {
   display: flex;
@@ -252,6 +253,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20rem;
 }
 .representation-page .representation-banner .banner__texts .banner__texts-title {
   font-family: manrope-bold;
@@ -271,6 +273,142 @@ body {
 }
 .representation-page .representation-banner .banner__image svg {
   width: 100%;
+}
+.representation-page .feature-announcement {
+  text-align: center;
+}
+.representation-page .feature-announcement .feature-announcement__upper-text {
+  font-family: manrope-semibold;
+  font-size: 2rem;
+  color: #00adb5;
+}
+.representation-page .feature-announcement .feature-announcement__title {
+  font-family: manrope-bold;
+  font-size: 5rem;
+  margin-top: 2rem;
+}
+.representation-page .features-trust-center {
+  margin-top: 10rem;
+}
+.representation-page .features-trust-center .section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+.representation-page .features-trust-center .section .features-uppertexts .features-icon {
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(136, 164, 124, 0.4);
+  border-radius: 7rem;
+}
+.representation-page .features-trust-center .section .features-uppertexts .features-title {
+  font-family: manrope-bold;
+  font-size: 2.4rem;
+  margin-top: 2rem;
+}
+.representation-page .features-trust-center .section .features-uppertexts .features-text {
+  max-width: 50rem;
+  margin-top: 2rem;
+}
+.representation-page .features-trust-center .section .features-downerimage {
+  max-width: 55rem;
+}
+.representation-page .features-trust-center .section .features-downerimage svg {
+  width: 100%;
+}
+.representation-page .features-trust-center .section:last-child {
+  margin: 0;
+}
+.representation-page .testimonial-title-holder {
+  text-align: center;
+  margin: 20rem 20rem;
+}
+.representation-page .testimonial-title-holder .testimonial-text {
+  font-family: manrope-semibold;
+  font-size: 2rem;
+  color: #00adb5;
+}
+.representation-page .testimonial-title-holder .testimonials-title {
+  font-family: manrope-bold;
+  font-size: 5rem;
+}
+.representation-page .testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.representation-page .testimonials .arrow-buttons {
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.representation-page .testimonials .arrow-buttons .arrow-left {
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+.representation-page .testimonials .arrow-buttons .arrow-right {
+  cursor: pointer;
+}
+.representation-page .testimonials .testimonials-inner-layer {
+  width: 65rem;
+  padding: 2rem 5rem;
+  border-radius: 1rem;
+  background-color: #323232;
+}
+.representation-page .testimonials .testimonials-inner-layer .testimonials-inner-layer__img {
+  width: 5.5rem;
+}
+.representation-page .testimonials .testimonials-inner-layer .testimonials-inner-layer__title {
+  font-family: manrope-bold;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.representation-page .testimonials .testimonials-inner-layer .tweet-text {
+  max-width: 60rem;
+  margin-bottom: 2rem;
+}
+.representation-page .testimonials .testimonials-inner-layer .testimonial-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.representation-page .testimonials .testimonials-inner-layer .testimonial-user .user__img {
+  color: 6rem;
+  margin-right: 1rem;
+}
+.representation-page .testimonials .testimonials-inner-layer .testimonial-user .info-container .user__username {
+  font-family: manrope-bold;
+  font-size: 2rem;
+}
+.representation-page .testimonials .testimonials-inner-layer .testimonial-user .info-container .user__location {
+  margin-top: 0.7rem;
+}
+.representation-page .footer {
+  margin-top: 20rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.representation-page .footer .footer-link {
+  color: #ffffff;
+  margin-inline: 2rem;
 }
 
 .dashboard {
