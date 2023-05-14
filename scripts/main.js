@@ -43,19 +43,28 @@ function switchScreen(screen) {
 	const dashboard = document.querySelector(".dashboard");
 	const loginFormCover = document.querySelector(".login-form-cover");
 	const registerFormCover = document.querySelector(".register-form-cover");
+	const representationPage = document.querySelector(".representation-page");
 
 	if (screen === 1) {
-		dashboard.style.display = "none";
+		representationPage.style.display = "none";
 		registerFormCover.style.display = "none";
 		loginFormCover.style.display = "flex";
-	} else if (screen === 2) {
 		dashboard.style.display = "none";
-		loginFormCover.style.display = "none";
+	} else if (screen === 2) {
+		representationPage.style.display = "none";
 		registerFormCover.style.display = "flex";
-	} else if (screen === 3) {
 		loginFormCover.style.display = "none";
+		dashboard.style.display = "none";
+	} else if (screen === 3) {
+		representationPage.style.display = "none";
 		registerFormCover.style.display = "none";
+		loginFormCover.style.display = "none";
 		dashboard.style.display = "block";
+	} else if (screen === 4) {
+		representationPage.style.display = "block";
+		registerFormCover.style.display = "none";
+		loginFormCover.style.display = "none";
+		dashboard.style.display = "none";
 	}
 }
 
@@ -455,3 +464,46 @@ document.querySelector(".sort").addEventListener("click", () => {
 });
 
 // switchScreen(3);
+
+// Open Account BTN
+document.querySelector(".navigation-account-open").addEventListener("click", () => switchScreen(2));
+
+// Navigate to next Section
+document.querySelector(".banner__link").addEventListener("click", (e) => {
+	document.querySelector(".feature-announcement").scrollIntoView({ behavior: "smooth" });
+});
+
+document.querySelector(".navigation-list").addEventListener("click", (e) => {
+	e.preventDefault();
+
+	if (e.target.classList.contains("link")) {
+		const id = e.target.getAttribute("href");
+		document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+	}
+});
+
+// Operation
+document.querySelectorAll(".button-page-changer").forEach((each) => {
+	const opTitle = document.querySelector(".operation-container-title");
+	const opIMG = document.querySelector(".operation-img");
+	const opCaption = document.querySelector(".operation-caption");
+
+	each.addEventListener("click", (e) => {
+		if (each.classList.contains("btn-red")) {
+			opTitle.innerText = "No longer need your account? No problem Close it instantly.";
+			opIMG.src = "../files/images/trashIcon.svg";
+			opCaption.innerText =
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo vero odit similique nulla repellendus expedita corporis eveniet a nihil quibusdam fugit harum consequatur molestiae, soluta aut asperiores enim recusandae id.";
+		} else if (each.classList.contains("btn-green")) {
+			opTitle.innerText = "Buy a home or make your dreams come true, with instant loans";
+			opIMG.src = "../files/images/homeIcon.svg";
+			opCaption.innerText =
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo vero odit similique nulla repellendus expedita corporis eveniet a nihil quibusdam fugit harum consequatur molestiae, soluta aut asperiores enim recusandae id.";
+		} else if (each.classList.contains("btn-yellow")) {
+			opTitle.innerText = "Transfer money to anyone, instantly! no fees, no difficulties";
+			opIMG.src = "../files/images/transferIcon.svg";
+			opCaption.innerText =
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo vero odit similique nulla repellendus expedita corporis eveniet a nihil quibusdam fugit harum consequatur molestiae, soluta aut asperiores enim recusandae id.";
+		}
+	});
+});
