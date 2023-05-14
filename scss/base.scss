@@ -54,6 +54,7 @@ body {
 	display: inline-block;
 	font-family: $manropeSemiBold;
 	text-decoration: none;
+	cursor: pointer;
 
 	&::after {
 		content: "";
@@ -197,6 +198,81 @@ body {
 
 			&:last-child {
 				margin: 0;
+			}
+		}
+	}
+
+	.operation-announcement {
+		text-align: center;
+		margin-top: 20rem;
+
+		.operation-upper-text {
+			font-family: $manropeSemiBold;
+			font-size: 2rem;
+			color: $primaryColor;
+		}
+
+		.operation-announcement-title {
+			font-family: $manropeBold;
+			font-size: 5rem;
+			margin-top: 2rem;
+		}
+	}
+
+	.operations-container {
+		width: 70%;
+		height: 40rem;
+		position: relative;
+		background-color: $secondaryColor;
+		border-radius: $radius;
+		@include proFlex(column);
+		margin-top: 12rem;
+		margin-left: auto;
+		margin-right: auto;
+
+		.buttons-container {
+			width: 100%;
+			@include proFlex(row, space-evenly);
+			@include positionCenter();
+			top: 0;
+
+			.button-page-changer {
+				width: 20rem;
+				height: 5rem;
+			}
+
+			.btn-yellow {
+				background-color: $yellowColor;
+			}
+
+			.btn-green {
+				background-color: $greenColor;
+			}
+
+			.btn-red {
+				background-color: $redColor;
+			}
+		}
+
+		.operation-text-content {
+			display: grid;
+			grid-template-columns: 10% 70%;
+			justify-content: center;
+			justify-items: center;
+			gap: 2rem;
+
+			.operation-img {
+				width: 7rem;
+			}
+
+			.operation-container-title {
+				font-family: $manropeBold;
+				font-size: 2.5rem;
+			}
+
+			.operation-caption {
+				max-width: 60rem;
+				grid-column: 3 / -2;
 			}
 		}
 	}
