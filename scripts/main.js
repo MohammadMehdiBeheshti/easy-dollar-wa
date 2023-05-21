@@ -469,8 +469,9 @@ document.querySelector(".sort").addEventListener("click", () => {
 document.querySelector(".navigation-account-open").addEventListener("click", () => switchScreen(2));
 
 // Navigate to next Section
+const featureAnnouncement = document.querySelector(".feature-announcement");
 document.querySelector(".banner__link").addEventListener("click", (e) => {
-	document.querySelector(".feature-announcement").scrollIntoView({ behavior: "smooth" });
+	featureAnnouncement.scrollIntoView({ behavior: "smooth" });
 });
 
 document.querySelector(".navigation-list").addEventListener("click", (e) => {
@@ -488,7 +489,7 @@ document.querySelectorAll(".button-page-changer").forEach((each) => {
 	const opIMG = document.querySelector(".operation-img");
 	const opCaption = document.querySelector(".operation-caption");
 
-	each.addEventListener("click", (e) => {
+	each.addEventListener("click", () => {
 		if (each.classList.contains("btn-red")) {
 			opTitle.innerText = "No longer need your account? No problem Close it instantly.";
 			opIMG.src = "../files/images/trashIcon.svg";
@@ -507,3 +508,7 @@ document.querySelectorAll(".button-page-changer").forEach((each) => {
 		}
 	});
 });
+
+// Slider
+const slides = [...document.querySelector(".testimonials-inner-layer").children];
+slides.forEach((each, ind) => (each.style.transform = `translateX(${ind * 100}%)`));

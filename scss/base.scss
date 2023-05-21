@@ -76,6 +76,15 @@ body {
 	}
 }
 
+.sticky {
+	width: 80%;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	z-index: 3;
+	transform: translateX(-50%);
+}
+
 // Representation Page
 .representation-page {
 	display: block;
@@ -84,7 +93,8 @@ body {
 
 	.representation-navigation {
 		@include proFlex(row, space-between);
-		margin-bottom: 13rem;
+		padding: 1rem 0;
+		background-color: $darkestColor;
 
 		.navigation-list {
 			@include proFlex(row);
@@ -115,6 +125,7 @@ body {
 
 	.representation-banner {
 		@include proFlex(row);
+		margin-top: 15rem;
 		margin-bottom: 20rem;
 
 		.banner__texts {
@@ -315,48 +326,80 @@ body {
 
 		.testimonials-inner-layer {
 			width: 65rem;
+			height: 35rem;
 			padding: 2rem 5rem;
+			position: relative;
 			border-radius: $radius;
 			background-color: $secondaryColor;
+			// overflow-x: hidden;
 
-			.testimonials-inner-layer__img {
-				width: 5.5rem;
-			}
+			.slide {
+				@include proFlex(column, center, center);
+				position: absolute;
+				inset: 0;
 
-			.testimonials-inner-layer__title {
-				font-family: $manropeBold;
-				font-size: 3rem;
-				margin-bottom: 2rem;
-			}
+				.slide-contents {
+					.testimonials-inner-layer__img {
+						width: 5.5rem;
+					}
 
-			.tweet-text {
-				max-width: 60rem;
-				margin-bottom: 2rem;
-			}
-
-			.testimonial-user {
-				@include proFlex(row, flex-start);
-				.user__img {
-					color: 6rem;
-					margin-right: 1rem;
-				}
-
-				.info-container {
-					.user__username {
+					.testimonials-inner-layer__title {
 						font-family: $manropeBold;
-						font-size: 2rem;
+						font-size: 3rem;
+						margin-bottom: 2rem;
 					}
 
-					.user__location {
-						margin-top: 0.7rem;
+					.tweet-text {
+						max-width: 60rem;
+						margin-bottom: 2rem;
+					}
+
+					.testimonial-user {
+						@include proFlex(row, flex-start);
+
+						.user__img {
+							color: 6rem;
+							margin-right: 1rem;
+						}
+
+						.info-container {
+							.user__username {
+								font-family: $manropeBold;
+								font-size: 2rem;
+							}
+
+							.user__location {
+								margin-top: 0.7rem;
+							}
+						}
 					}
 				}
+			}
+		}
+
+		.dots-container {
+			@include proFlex(row);
+			gap: 1rem;
+
+			.slider-dot {
+				width: 2.6rem;
+				height: 1rem;
+				margin-top: 1.5rem;
+				background-color: $grayColor;
+				border-radius: $radius;
+				cursor: pointer;
+				transition: all 200ms ease-in-out;
+			}
+
+			.slider-active {
+				background-color: $primaryColor;
 			}
 		}
 	}
 
 	.footer {
 		margin-top: 20rem;
+		margin-bottom: 2.5rem;
 		@include proFlex(row);
 
 		.footer-link {

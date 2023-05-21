@@ -7,11 +7,12 @@
 		<title>Easy Dollar</title>
 		<link rel="stylesheet" href="./styles/style.css" />
 		<link rel="icon" href="./files/images/symbol.svg" />
+		<script defer src="./scripts/main.js"></script>
 	</head>
 	<body>
 		<!-- Representation Page -->
 		<div class="representation-page">
-			<nav class="representation-navigation">
+			<nav class="representation-navigation sticky">
 				<img src="./files/images/logo.svg" alt="logo" class="logo" />
 				<ul class="navigation-list">
 					<li class="navigation-lists"><a href="#section-one" class="navigation-links link">Features</a></li>
@@ -619,26 +620,76 @@
 			</div>
 
 			<div class="testimonials">
-				<div class="testimonials-inner-layer">
-					<img src="./files/images/quoteSymbol.svg" alt="Quote Symbol" class="testimonials-inner-layer__img" />
+				<ul class="testimonials-inner-layer">
+					<li class="slide-1 slide">
+						<div class="slide-contents">
+							<img src="./files/images/quoteSymbol.svg" alt="Quote Symbol" class="testimonials-inner-layer__img" />
 
-					<h4 class="testimonials-inner-layer__title">Best financial decision ever!</h4>
+							<h4 class="testimonials-inner-layer__title">Best financial decision ever!</h4>
 
-					<p class="tweet-text">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ab aspernatur voluptate minima iste tenetur
-						reprehenderit facere animi expedita quidem laborum doloribus aliquid, beatae facilis. Alias consequuntur
-						porro quibusdam voluptate ad ea, deserunt totam autem officiis maxime, molestias similique minus illo
-						temporibus est natus laborum, numquam odit nulla sapiente et.
-					</p>
+							<p class="tweet-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ab aspernatur voluptate minima iste
+								tenetur reprehenderit facere animi expedita quidem laborum doloribus aliquid, beatae facilis. Alias
+								consequuntur porro quibusdam voluptate ad ea, deserunt totam autem officiis maxime, molestias similique
+								minus illo temporibus est natus laborum, numquam odit nulla sapiente et.
+							</p>
 
-					<div class="testimonial-user">
-						<img src="./files/images/userOnePicture.svg" alt="user" class="user__img" />
-						<div class="info-container">
-							<h5 class="user__username">Micheal Icke</h5>
-							<p class="user__location">Berlin, DE</p>
+							<div class="testimonial-user">
+								<img src="./files/images/userOnePicture.svg" alt="user" class="user__img" />
+								<div class="info-container">
+									<h5 class="user__username">Micheal Icke</h5>
+									<p class="user__location">Berlin, DE</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
+					</li>
+
+					<li class="slide-2 slide">
+						<div class="slide-contents">
+							<img src="./files/images/quoteSymbol.svg" alt="Quote Symbol" class="testimonials-inner-layer__img" />
+
+							<h4 class="testimonials-inner-layer__title">The last step to become a complete minimalist</h4>
+
+							<p class="tweet-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ab aspernatur voluptate minima iste
+								tenetur reprehenderit facere animi expedita quidem laborum doloribus aliquid, beatae facilis. Alias
+								consequuntur porro quibusdam voluptate ad ea, deserunt totam autem officiis maxime, molestias similique
+								minus illo temporibus est natus laborum, numquam odit nulla sapiente et.
+							</p>
+
+							<div class="testimonial-user">
+								<img src="./files/images/userTwoPicture.svg" alt="user" class="user__img" />
+								<div class="info-container">
+									<h5 class="user__username">Marry Duke</h5>
+									<p class="user__location">USA, Fl</p>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<li class="slide-3 slide">
+						<div class="slide-contents">
+							<img src="./files/images/quoteSymbol.svg" alt="Quote Symbol" class="testimonials-inner-layer__img" />
+
+							<h4 class="testimonials-inner-layer__title">Finally free form old-school banks</h4>
+
+							<p class="tweet-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ab aspernatur voluptate minima iste
+								tenetur reprehenderit facere animi expedita quidem laborum doloribus aliquid, beatae facilis. Alias
+								consequuntur porro quibusdam voluptate ad ea, deserunt totam autem officiis maxime, molestias similique
+								minus illo temporibus est natus laborum, numquam odit nulla sapiente et.
+							</p>
+
+							<div class="testimonial-user">
+								<img src="./files/images/userThreePicture.svg" alt="user" class="user__img" />
+								<div class="info-container">
+									<h5 class="user__username">Jerry Pierce</h5>
+									<p class="user__location">Norway, Oslo</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
 
 				<div class="arrow-buttons">
 					<svg
@@ -668,6 +719,12 @@
 							fill="white"
 						/>
 					</svg>
+				</div>
+
+				<div class="dots-container">
+					<div class="slider-dot dot-1"></div>
+					<div class="slider-dot dot-2"></div>
+					<div class="slider-dot dot-3"></div>
 				</div>
 			</div>
 
@@ -880,7 +937,5 @@
 			<img src="#" alt="toastNotification" class="notification__img" />
 			<p class="notification__text">There was a problem!</p>
 		</div>
-
-		<script src="./scripts/main.js"></script>
 	</body>
 </html>
