@@ -312,7 +312,7 @@ body {
 			width: 65%;
 			@include proFlex(row, space-between);
 			@include positionCenter();
-			z-index: 2;
+			z-index: 3;
 
 			.arrow-left {
 				transform: rotate(180deg);
@@ -331,12 +331,14 @@ body {
 			position: relative;
 			border-radius: $radius;
 			background-color: $secondaryColor;
-			// overflow-x: hidden;
+			overflow-x: hidden;
 
 			.slide {
 				@include proFlex(column, center, center);
 				position: absolute;
 				inset: 0;
+				z-index: 2;
+				transition: transform 200ms ease-in-out;
 
 				.slide-contents {
 					.testimonials-inner-layer__img {

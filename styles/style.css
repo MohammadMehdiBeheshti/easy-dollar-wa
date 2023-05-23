@@ -438,7 +438,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 3;
 }
 .representation-page .testimonials .arrow-buttons .arrow-left {
   transform: rotate(180deg);
@@ -454,6 +454,7 @@ body {
   position: relative;
   border-radius: 1rem;
   background-color: #323232;
+  overflow-x: hidden;
 }
 .representation-page .testimonials .testimonials-inner-layer .slide {
   display: flex;
@@ -462,6 +463,8 @@ body {
   align-items: center;
   position: absolute;
   inset: 0;
+  z-index: 2;
+  transition: transform 200ms ease-in-out;
 }
 .representation-page .testimonials .testimonials-inner-layer .slide .slide-contents .testimonials-inner-layer__img {
   width: 5.5rem;
