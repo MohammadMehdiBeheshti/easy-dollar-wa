@@ -533,9 +533,8 @@ document.querySelector(".dots-container").addEventListener("click", (e) => {
 	const dotNumber = +e.target.className.slice(-1);
 
 	if (dotNumber) {
-		switchSlide(1, dotNumber - 2);
+		switchSlide(2, dotNumber - 1);
 		switchDots(dotNumber - 1);
-		console.log(dotNumber - 2);
 	}
 });
 
@@ -547,7 +546,7 @@ function switchSlide(type = 0, index) {
 			currSlide = 0;
 		}
 	} else if (type === 2) {
-		// FIXME: Something ain't right
+		currSlide = index;
 	} else {
 		if (index > 0) {
 			currSlide--;
